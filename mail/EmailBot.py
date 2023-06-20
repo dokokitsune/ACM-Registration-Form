@@ -10,7 +10,8 @@ from email.mime.image import MIMEImage
 
 class MailBot:
     sender = "jarvismark01v@gmail.com"
-    credential = os.environ.get("PASSWORD")
+    credential = os.environ.get("password")
+    print(credential)
 
     def __init__(self, receiver=None, subject=None, message=None):
         self.receiver = receiver
