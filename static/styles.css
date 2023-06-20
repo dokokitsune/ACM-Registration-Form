@@ -1,0 +1,59 @@
+*,*::after, *::before {
+    -webkit-box-sizing: border-box;
+    
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    margin:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hear-about-select{
+    width: 400px;
+    margin: 80px auto;
+
+}
+
+.hear-about-select select{
+    width: 100%;
+}
+
+.hear-about-select button{
+    
+    color: white !important;
+    padding: 15px 25px;
+
+
+}
+
+
+
+.input-box{
+    padding-bottom: 50px ;
+}
+
+/* .container{
+    position: relative;
+   
+
+}
+
+.container h1{
+    display: block;
+    justify-content: center;
+}
+
+.membershipForm{
+    padding: 10px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+} */
