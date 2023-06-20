@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ACM Membership Form</title>
-        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css')}}">
+        <link rel="stylesheet" href="../static/styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" integrity="sha512-6g9IGCc67eh+xK03Z8ILcnKLbJnKBW+qpEdoUVD/4hBa2Ghiq5dQgeNOGWJfGoe9tdCRM4GpJMnsRXa2FDJp9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+        
 
     </head>   
     <body>
@@ -15,8 +15,8 @@
 
         <div class="container">
             <h1>ACM Member Registration : 2023-2024</h1>
-            <h1>CSULA ACM | Association for Computing Machinery</h2>
-            <h1>Contact us: </h2>
+            <h1>CSULA ACM | Association for Computing Machinery</h1>
+            <h1>Contact us: </h1>
             <a href="mailto:acm.calstatela@gmail.com">acm.calstatela@gmail.com</a>
             <p>Note: Most of our events are scheduled on Tuesday/Thursdays 3pm - 4:20pm</p>
             <form class="membershipForm" name="placeholder">
@@ -163,7 +163,9 @@
                             <option value="mentorship-pro">Mentorship Program</option>
                             <option value="Other">Other</option>
                         </select>
+                    </label>
                 </div>
+                
                 
                 <div class="input-box">
                         <label for="buddy">Buddy System (Direct correspondence and access to an ACM leader)</label>
