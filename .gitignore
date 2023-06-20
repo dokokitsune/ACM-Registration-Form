@@ -1,6 +1,6 @@
 # Ignore specific directories
-
+/__pycache__
 
 # Ignore specific files
-README.md
-pyvenv.cfg
+*.md
+*.cfg
