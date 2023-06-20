@@ -1,7 +1,5 @@
 # Ignore specific directories
-/__pycache__/
-/lib/
-/bin/
 
 # Ignore specific files
 pyvenv.cfg
+README.md
