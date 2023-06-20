@@ -1,5 +1,6 @@
 # Ignore specific directories
 
+
 # Ignore specific files
-*pyvenv.cfg
-*README.md
+README.md
+pyvenv.cfg
