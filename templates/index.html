@@ -1,225 +1,1027 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ACM Membership Form</title>
-        <link rel="stylesheet" href="../static/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" integrity="sha512-6g9IGCc67eh+xK03Z8ILcnKLbJnKBW+qpEdoUVD/4hBa2Ghiq5dQgeNOGWJfGoe9tdCRM4GpJMnsRXa2FDJp9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
-
-    </head>   
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
-        <div class="container">
-            <h1>ACM Member Registration : 2023-2024</h1>
-            <h1>CSULA ACM | Association for Computing Machinery</h1>
-            <h1>Contact us: </h1>
-            <a href="mailto:acm.calstatela@gmail.com">acm.calstatela@gmail.com</a>
-            <p>Note: Most of our events are scheduled on Tuesday/Thursdays 3pm - 4:20pm</p>
-            <form action="submit_form" method="POST" class="membershipForm" name="placeholder">
-                
-                <div class="input-box">
-                    <label for="Email">Email</label>
-                    <input type="email" name="Email" class="formText" placeholder="Email" id="emailText" required>
-                </div>
-                
-                <div class="input-box">
-                <label for="membership">Membership</label>
-                <select name="membership" id="membership">
-                    <option value="new">New Member</option>
-                    <option value="returning">Returning ACM Member</option>
-                </select>  
-                </div>
-                    
-                <div class="input-box">
-                    <label for="firstName">First Name</label>
-                    <input type="text" name="firstName" class="formText" placeholder="First Name" id="nameText" required>    
-                </div>
-                
-                <div class="input-box">
-                    <label for="lastName">Last name</label>
-                    <input type="text" name="lastName" class="formText" placeholder="Last Name" id="nameText" required>
-                </div>
-                
-                <div class="input-box">
-                    <label for="cin">CIN (type N/A if you don't currently have one)</label>
-                    <input type="text" name="cin" class="formText" placeholder="your CIN" id="cinNumber" required>
-                </div>
-
-                <div class="input-box">
-                    <label for="phone-number">Phone Number</label>
-                    <input type="number" name="phone-number" class="formText" placeholder="Phone Number" required>
-                </div>
-                
-                <div class="input-box">
-                    <label for="discordTag">Discord ID: (ex. ACM#2022) </label>
-                    <input type="text" name="discordTag" class="formText" placeholder="Discord Tag" id="discordTag" required>
-                </div>
-
-                <div class="input-box">
-                    <label for="birthday">Birthday</label>
-                    <input type="date" name="birthday" class="formText" id="birthday" required>
-                </div>
-                
-                <div class="input-box">
-                        <label for="gender">Gender</label>
-                    <select name="gender" id="gender">
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Non-Binary">Non-Binary</option>
-                        <option value="Prefer not to say">Prefer not to say</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="input-box">
-                    <label for="major">Major</label>
-                    <select name="major" id="major">
-                        <option value="Pre-Computer Science">Pre-Computer Science</option>
-                        <option value="Computer Science">Computer Science</option>
-                        <option value="Mechanical Engineering">Mechanical Engineering</option>
-                        <option value="Civil Engineering">Civil Engineering</option>
-                        <option value="Electrical Engineering">Electrical Engineering</option>
-                        <option value="Computer Information Systems">Computer Information Systems</option>
-                        <option value="Natural Science">Natural Science</option>
-                        <option value="Biology">Biology</option>
-                        <option value="Chemistry">Chemistry</option>
-                        <option value="Biochemistry">Biochemistry</option>
-                        <option value="Political Science">Political Science</option>
-                        <option value="Psychology">Psychology</option>
-                        <option value="Food Science and Technology">Food Science and Technology</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                
-                <div class="input-box">
-                        <label for="standing">Class Standing</label>
-                    <select name="standing" id="standing">
-                        <option value="Freshman">Freshman</option>
-                        <option value="Sophomore">Sophomore</option>
-                        <option value="Junior">Junior</option>
-                        <option value="Senior">Senior</option>
-                        <option value="Graduate">Graduate</option>
-                        <option value="Faculty">Faculty</option>
-                        <option value="Alumni">Alumni</option>
-                        <option value="Other Community Member">Other Community Member</option>
-                        <option value="Not a CSULA Student">Not a CSULA Student</option>
-                    </select>
-                </div>
-                
-                <div class="input-box">
-                        <label for="Senior Design">Are you taking Senior Design in 2022-2023 (for ECST students)?</label>
-                    <select name="senior-design" id="senior-design">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                
-                <div class="input-box">
-                        <label for="graduation-year">If you are a student, what is your expected graduation year?</label>
-                    <select name="graduation-year" id="graduation-year">
-                        <option value="Fall-2023">Fall 2023</option>
-                        <option value="Spring-2024">Spring 2024</option>
-                        <option value="Fall-2024">Fall 2024</option>
-                        <option value="Spring-2025">Spring 2025</option>
-                        <option value="Fall-2025">Fall 2025</option>
-                        <option value="Spring-2026">Spring 2026</option>
-                        <option value="Fall-2026">Fall 2026</option>
-                        <option value="Spring-2027">Spring 2027</option>
-                    </select>
-                </div>
-            
-                     
-                <div class="input-box">
-                    <label for="hear-about-ACM">How did you hear about ACM?
-                    </label>
-                    <select class="hear-about-select" name="hear-about-ACM" id="hear-about-select" multiple>
-                        <option value="ACM-Website">ACM Website</option>
-                        <option value="ACM-Flyer">ACM Flyer</option>
-                        <option value="Social-Media">Social Media</option>
-                        <option value="ECST/CS-Department">ECST/CS Department</option>
-                        <option value="CS-1010-requitment">CS 1010 requitment</option>
-                        <option value="CS-201x requitment">CS 201x requitment</option>
-                        <option value="Other-recruitment-event">Other recruitment event</option>
-                        <option value="Heard-from-a-friend">Heard from a friend</option>
-                        <option value="Other">Other</option>
-                    </select>
-
-                </div>
-                
-                <div class="input-box">
-                    <label for="gain-from-ACM">What do you expect to gain from ACM?/label>
-                        <select name="gain-from-ACM" id="gain-from-ACM" multiple>
-                            <option value="career-guide">Career Guide</option>
-                            <option value="Networking-opp-with-pro">Network opportunities with professionals</option>
-                            <option value="leadership-dev">Leadership and development</option>
-                            <option value="project-exp">Project experience</option>
-                            <option value="internship-opp">Internship opportunities</option>
-                            <option value="scholarship-opp">Scholarship opportunities</option>
-                            <option value="mentorship-pro">Mentorship Program</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </label>
-                </div>
-                
-                
-                <div class="input-box">
-                        <label for="buddy">Buddy System (Direct correspondence and access to an ACM leader)</label>
-                    <select name="buddy" id="buddy">
-                        <option value="Opt in">Opt in</option>
-                        <option value="Opt out">Opt out</option>
-                    </select>
-                </div>
-
-                <div class="input-box">
-                    <label for="project-workshop">Project Workshops you'd be interested in for Fall 2023 (Note that you still have to do the official sign-ups on our website)</label>
-                    <select name="project-workshop" id="project-workshop" multiple>
-                        <option value="wordle-game">Wordle Game (For beginners with little to no coding expericence)</option>
-                        <option value="unity-game">Unity 2d Sidescroller (For more advanced coders)</option>
-                        <option value="not-interested">Not Interested</option>
-                    </select>
-                </div>
-
-                <div class="input-box">
-                    <label for="avalibility">What dates are you usually most free? (Tuesdays & Thursdays at 3:00-4:20 p.m. are typically when ACM has meetings)</label>
-                    <select name="avalibility" id="avalibility" multiple>
-                        <option value="Sunday">Sunday</option>
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                    </select>
-                </div>
-                <div class="input-box">
-                    <label for="recommendations">Please provide some recommendations of projects and endeavors ACM should consider implementing in the near future or any thoughts you might have. Type "N/A" if none comes to mind.</label>
-                    <input type="text" name="recommendations" class="formText" id="recommendations" required>
-                </div>
-
-                <div class="input-box">
-                    <label for="confirmation">Please enter your email address again as confirmation</label>
-                    <input type="email" name="confirmation" class="formText" id="confirmation" required>
-                </div>
-                <button>Submit</button>
-            </form>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ACM Membership Form</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css"
+      integrity="sha512-6g9IGCc67eh+xK03Z8ILcnKLbJnKBW+qpEdoUVD/4hBa2Ghiq5dQgeNOGWJfGoe9tdCRM4GpJMnsRXa2FDJp9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"
+      integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+    <div >
+      <div class="card my-3">
+        <div class="card-body">
+          <div class="d-flex align-items-center ">
+            <img src="../static/images/acm.png" class="card-img-top p-1" alt="acmlogo" style="width: 6rem;">
+            <div>
+              <h1>ACM Member Registration : 2023-2024</h1>
+              <h1>CSULA ACM | Association for Computing Machinery</h1>
+            </div>
+          </div>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Note: Most of our events are scheduled on Tuesday/Thursdays 3pm - 4:20pm</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Contact us at: <a href="mailto:acm.calstatela@gmail.com">acm.calstatela@gmail.com</a></li>
+            <li class="list-group-item">( <span class="text-danger">*</span> ) indicates required field</li>
+          </ul>
+        </div>
+      </div>
+      <form
+        action="submit_form"
+        method="POST"
+        class="membershipForm"
+        name="placeholder"
+      >
+        <div class="input-box">
+          <label class="form-label" for="Email">Email <span class="text-danger">*</span></label>
+          <input class="form-control"
+            type="email"
+            name="Email"
+            placeholder="Email"
+            id="emailText"
+            required
+          />
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js" integrity="sha512-iqhWkvLOXVDz+Lr//ZryEKNvZ5pmgdKEe58Wh/VwfTGwTku0MKbuLhjJ1zUAJu8iSbOqfLcXrrxJ61+27THi2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script>    
-            $(document).ready(function() {
-            $('.hear-about-select').selectpicker();
-            $('#gain-from-ACM').selectpicker();
-            $('#project-workshop').selectpicker();
-            $('#avalibility').selectpicker();
-            
-        });</script>
-    </body>
+        <div class="input-box">
+          <label class="form-label" for="membership">Membership <span class="text-danger">*</span></label>
+          <select class="form-select" name="membership" id="membership" required>
+            <option value="new">New Member</option>
+            <option value="returning">Returning ACM Member</option>
+          </select>
+        </div>
 
+        <div class="input-box">
+          <label class="form-label" for="firstName">First Name <span class="text-danger">*</span></label>
+          <input class="form-control"
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            id="nameText"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="lastName">Last name <span class="text-danger">*</span></label>
+          <input class="form-control"
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            id="nameText"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="cin"
+            >CIN (type N/A if you don't currently have one) <span class="text-danger">*</span></label
+          >
+          <input class="form-control"
+            type="text"
+            name="cin"
+            placeholder="your CIN"
+            id="cinNumber"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="phone-number">Phone Number <span class="text-danger">*</span></label>
+          <input class="form-control"
+            type="number"
+            name="phone-number"
+            placeholder="Phone Number"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="discordTag">Discord ID: (ex. ACM#2022) <span class="text-danger">*</span></label>
+          <input class="form-control"
+            type="text"
+            name="discordTag"
+            placeholder="Discord Tag"
+            id="discordTag"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="birthday">Birthday <span class="text-danger">*</span></label>
+          <input class="form-control"
+            type="date"
+            name="birthday"
+            id="birthday"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="gender">Gender <span class="text-danger">*</span></label>
+          <div class="form-check">
+            <label class="form-check-label" for="female"
+              ><input 
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="female"
+                value="female"
+                required
+              />
+              Female
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="male"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="male"
+                value="male"
+              />
+              Male
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="non-bi"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="non-bi"
+                value="non-bi"
+              />
+              Non-binary
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="prefernot"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="prefernot"
+                value="prefernot"
+              />
+              Prefer not to say
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="other-gender">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="other-gender"
+                value=""
+              />
+              Other:
+              <input class="form-control"
+                type="text"
+                name="other-gender"
+                id="other-gender-text"
+                disabled
+              />
+            </label>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="major">Major <span class="text-danger">*</span></label>
+          <div class="form-check">
+            <label class="form-check-label" for="pre-cs"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="pre-cs"
+                value="Pre-CS"
+                required
+              />
+              Pre-Computer Science
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="cs"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="cs"
+                value="CS"
+              />
+              Computer Science
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="me"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="me"
+                value="Mechanical Eng"
+              />
+              Mechanical Engineering
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="civil"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="civil"
+                value="Civil Eng"
+              />
+              Civil Engineering
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="ee"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="ee"
+                value="Electrical Eng"
+              />
+              Electrical Engineering
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="cis"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="cis"
+                value="CIS"
+              />
+              Computer Information Systems
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="natural"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="natural"
+                value="Natural Sci"
+              />
+              Natural Science
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="bio"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="bio"
+                value="Biology"
+              />
+              Biology
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="chem"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="chem"
+                value="Chemistry"
+              />
+              Chemistry
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="biochem"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="biochem"
+                value="BioChem"
+              />
+              Biochemistry
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="poli"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="poli"
+                value="Poli Sci"
+              />
+              Political Science
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="psych"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="psych"
+                value="Psychology"
+              />
+              Psychology
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="food"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="food"
+                value="Food Sci and Tech"
+              />
+              Food Science and Technology
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="other-major">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="major"
+                id="other-major"
+                value=""
+              />
+              Other:
+              <input class="form-control"
+                type="text"
+                name="other-major"
+                id="other-major-text"
+                disabled
+              />
+            </label>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="standing">Class Standing <span class="text-danger">*</span></label>
+          <select class="form-select" name="standing" id="standing" required>
+            <option value="Freshman">Freshman</option>
+            <option value="Sophomore">Sophomore</option>
+            <option value="Junior">Junior</option>
+            <option value="Senior">Senior</option>
+            <option value="Graduate">Graduate</option>
+            <option value="Faculty">Faculty</option>
+            <option value="Alumni">Alumni</option>
+            <option value="Other Community Member">
+              Other Community Member
+            </option>
+            <option value="Not a CSULA Student">Not a CSULA Student</option>
+          </select>
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="Senior Design"
+            >Are you taking Senior Design in 2022-2023 (for ECST
+            students)? <span class="text-danger">*</span></label
+          >
+          <select class="form-select" name="senior-design" id="senior-design" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="graduation-year"
+            >If you are a student, what is your expected graduation year? <span class="text-danger">*</span></label
+          >
+          <div class="form-check">
+            <label class="form-check-label" for="fall23"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="fall23"
+                value="Fall 2023"
+                requried
+              />
+              Fall 2023
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="spring24"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="spring24"
+                value="Spring 2024"
+              />
+              Spring 2024
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="fall24"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="fall24"
+                value="Fall 2024"
+              />
+              Fall 2024
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="spring25"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="spring25"
+                value="Spring 2025"
+              />
+              Spring 2025
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="fall25"
+              ><input 
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="fall25"
+                value="Fall 2025"
+              />
+              Fall 2025
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="spring26"
+              ><input 
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="spring26"
+                value="Spring 2026"
+              />
+              Spring 2026
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="fall26"
+              ><input 
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="fall26"
+                value="Fall 2026"
+              />
+              Fall 2026
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="spring27"
+              ><input 
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="spring27"
+                value="Spring 2027"
+              />
+              Spring 2027
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="fall27"
+              ><input 
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="fall27"
+                value="Fall 2027"
+              />
+              Fall 2027
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="spring28"
+              ><input 
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="spring28"
+                value="Spring 2028"
+              />
+              Spring 2028
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="other-year">
+              <input 
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="other-year"
+                value=""
+              />
+              Other:
+              <input class="form-control"
+                type="text"
+                name="other-year"
+                id="other-year-text"
+                disabled
+              />
+            </label>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="hear-about-ACM">How did you hear about ACM? <span class="text-danger">*</span></label>
+          <div class="form-check">
+            <label class="form-check-label" for="acmweb"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="acmweb"
+                value="ACM-Web"
+                required
+              />
+              ACM Website
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="acmflyer"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="acmflyer"
+                value="ACM Flyer"
+              />
+              ACM Flyer
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="social"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="social"
+                value="Social Media"
+              />
+              Social Media
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="ecst"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="ecst"
+                value="ECST Dept"
+              />
+              ECST Department
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="cs1010"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="cs1010"
+                value="CS 1010"
+              />
+              CS 1010 recruitment
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="cs201x"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="cs201x"
+                value="CS 201X"
+              />
+              CS 201X recruitment
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="otherrecuitment"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="otherrecuitment"
+                value="Other recruitment"
+              />
+              Other recruitment event
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="friend"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="friend"
+                value="From Friend"
+              />
+              Heard from a friend
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="other-hear">
+              <input 
+                class="form-check-input"
+                type="checkbox"
+                name="hear"
+                id="other-hear"
+              />
+              Other:
+              <input class="form-control"
+                type="text"
+                name="other-hear"
+                id="other-hear-text"
+                disabled
+              />
+            </label>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="gain-from-ACM"
+            >What do you expect to gain from ACM? <span class="text-danger">*</span></label>
+            </select>
+          </label>
+          <div class="form-check">
+            <label class="form-label" for="career"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="gain"
+                id="career"
+                value="career-guide"
+                required
+              />
+              Career guidance
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="network"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="gain"
+                id="network"
+                value="networking-opp-with-pro"
+              />
+              Networking opportunities with professionals
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="leadership"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="gain"
+                id="leadership"
+                value="leadership-dev"
+              />
+              Leadership development
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="projectexp"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="gain"
+                id="projectexp"
+                value="project-exp"
+              />
+              Project experience
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="internship"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="gain"
+                id="internship"
+                value="internship-opp"
+              />
+              Internship opportunities
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="scholarship"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="gain"
+                id="scholarship"
+                value="scholarship-opp"
+              />
+              Scholarship opportunities
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="mentorship"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="gain"
+                id="mentorship"
+                value="mentorship-pro"
+              />
+              Mentorship Program
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="other-gain">
+              <input 
+                class="form-check-input"
+                type="checkbox"
+                name="gain"
+                id="other-gain"
+              />
+              Other:
+              <input class="form-control"
+                type="text"
+                name="other-gain"
+                id="other-gain-text"
+                disabled
+              />
+            </label>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="buddy"
+            >Buddy System (Direct correspondence and access to an ACM
+            leader) <span class="text-danger">*</span></label
+          >
+          <select class="form-select" name="buddy" id="buddy" required>
+            <option value="Opt in">Opt in</option>
+            <option value="Opt out">Opt out</option>
+          </select>
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="project-workshop"
+            >Project Workshops you'd be interested in for Fall 2023 (Note that
+            you still have to do the official sign-ups on our website) <span class="text-danger">*</span></label
+          >
+          <div class="form-check">
+            <label class="form-check-label" for="beginners"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="project-workshop"
+                id="beginners"
+                value="beginners"
+                required
+              />
+              Beginners level: Wordle Game
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="advanced"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="project-workshop"
+                id="advanced"
+                value="advanced"
+              />
+              Advanced level: Unity 2d Sidescroller
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="nothing"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="project-workshop"
+                id="nothing"
+                value="nothing"
+              />
+              Not interested
+            </label>
+          </div>
+          
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="avalibility"
+            >What dates are you usually most free? (Tuesdays & Thursdays at
+            3:00-4:20 p.m. are typically when ACM has meetings) <span class="text-danger">*</span></label
+          >
+          <div class="form-check">
+            <label class="form-check-label" for="sunday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="avalibility"
+                id="sunday"
+                value="sunday"
+                required
+              />
+              Sunday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="monday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="monday"
+                value="monday"
+              />
+              Monday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="tuesday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="tuesday"
+                value="tuesday"
+              />
+              Tuesday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="wednesday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="wednesday"
+                value="wednesday"
+              />
+              Wednesday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="thursday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="thursday"
+                value="thursday"
+              />
+              Thursday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="friday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="friday"
+                value="friday"
+              />
+              Friday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="saturday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="saturday"
+                value="saturday"
+              />
+              Saturday
+            </label>
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="form-label" for="recommendations"
+            >Please provide some recommendations of projects and endeavors ACM
+            should consider implementing in the near future or any thoughts you
+            might have. Type "N/A" if none comes to mind. <span class="text-danger">*</span></label
+          >
+          <input class="form-control"
+            type="text"
+            name="recommendations"
+            class="formText"
+            id="recommendations"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label class="form-label" for="confirmation"
+            >Please enter your email address again as confirmation <span class="text-danger">*</span></label
+          >
+          <input class="form-control"
+            type="email"
+            name="confirmation"
+            class="formText"
+            id="confirmation"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js"
+      integrity="sha512-iqhWkvLOXVDz+Lr//ZryEKNvZ5pmgdKEe58Wh/VwfTGwTku0MKbuLhjJ1zUAJu8iSbOqfLcXrrxJ61+27THi2Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script>
+      $(document).ready(function () {
+
+
+        /***************************************
+        This code section disables/enables textboxes
+        when interacting "other" check/radio buttons
+        ****************************************/
+        $('input:radio[name="gender"]').change(function () {
+          var bool = $(this).val() !== "";
+          $("#other-gender-text").prop("disabled", bool);
+        });
+        $('input:radio[name="major"]').change(function () {
+          var bool = $(this).val() !== "";
+          $("#other-major-text").prop("disabled", bool);
+        });
+        $('input:radio[name="gradyear"]').change(function () {
+          var bool = $(this).val() !== "";
+          $("#other-year-text").prop("disabled", bool);
+        });
+        $('input:checkbox[name="hear"]').change(function () {
+          if ($("#other-hear").is(":checked")) {
+            $("#other-hear-text").prop("disabled", false);
+          } else {
+            $("#other-hear-text").prop("disabled", true);
+          }
+        });
+        $('input:checkbox[name="gain"]').change(function () {
+          if ($("#other-gain").is(":checked")) {
+            $("#other-gain-text").prop("disabled", false);
+          } else {
+            $("#other-gain-text").prop("disabled", true);
+          }
+        });
+        /**********************************************/
+
+        $(".hear-about-select").selectpicker();
+        $("#gain-from-ACM").selectpicker();
+        $("#project-workshop").selectpicker();
+        $("#avalibility").selectpicker();
+      });
+    </script>
+  </body>
 </html>
