@@ -27,14 +27,23 @@
     />
   </head>
   <body class="container">
-    <div>
-      <h1>ACM Member Registration : 2023-2024</h1>
-      <h1>CSULA ACM | Association for Computing Machinery</h1>
-      <h1>Contact us:</h1>
-      <a href="mailto:acm.calstatela@gmail.com">acm.calstatela@gmail.com</a>
-      <p>
-        Note: Most of our events are scheduled on Tuesday/Thursdays 3pm - 4:20pm
-      </p>
+    <div >
+      <div class="card my-3">
+        <div class="card-body">
+          <div class="d-flex align-items-center ">
+            <img src="../static/images/acm.png" class="card-img-top p-1" alt="acmlogo" style="width: 6rem;">
+            <div>
+              <h1>ACM Member Registration : 2023-2024</h1>
+              <h1>CSULA ACM | Association for Computing Machinery</h1>
+            </div>
+          </div>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Note: Most of our events are scheduled on Tuesday/Thursdays 3pm - 4:20pm</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Contact us at: <a href="mailto:acm.calstatela@gmail.com">acm.calstatela@gmail.com</a></li>
+            <li class="list-group-item">( <span class="text-danger">*</span> ) indicates required field</li>
+          </ul>
+        </div>
+      </div>
       <form
         action="submit_form"
         method="POST"
@@ -42,11 +51,10 @@
         name="placeholder"
       >
         <div class="input-box">
-          <label for="Email">Email</label>
-          <input
+          <label class="form-label" for="Email">Email <span class="text-danger">*</span></label>
+          <input class="form-control"
             type="email"
             name="Email"
-            class="formText"
             placeholder="Email"
             id="emailText"
             required
@@ -54,19 +62,18 @@
         </div>
 
         <div class="input-box">
-          <label for="membership">Membership</label>
-          <select name="membership" id="membership">
+          <label class="form-label" for="membership">Membership <span class="text-danger">*</span></label>
+          <select class="form-select" name="membership" id="membership" required>
             <option value="new">New Member</option>
             <option value="returning">Returning ACM Member</option>
           </select>
         </div>
 
         <div class="input-box">
-          <label for="firstName">First Name</label>
-          <input
+          <label class="form-label" for="firstName">First Name <span class="text-danger">*</span></label>
+          <input class="form-control"
             type="text"
             name="firstName"
-            class="formText"
             placeholder="First Name"
             id="nameText"
             required
@@ -74,11 +81,10 @@
         </div>
 
         <div class="input-box">
-          <label for="lastName">Last name</label>
-          <input
+          <label class="form-label" for="lastName">Last name <span class="text-danger">*</span></label>
+          <input class="form-control"
             type="text"
             name="lastName"
-            class="formText"
             placeholder="Last Name"
             id="nameText"
             required
@@ -86,13 +92,12 @@
         </div>
 
         <div class="input-box">
-          <label for="cin"
-            >CIN (type N/A if you don't currently have one)</label
+          <label class="form-label" for="cin"
+            >CIN (type N/A if you don't currently have one) <span class="text-danger">*</span></label
           >
-          <input
+          <input class="form-control"
             type="text"
             name="cin"
-            class="formText"
             placeholder="your CIN"
             id="cinNumber"
             required
@@ -100,22 +105,20 @@
         </div>
 
         <div class="input-box">
-          <label for="phone-number">Phone Number</label>
-          <input
+          <label class="form-label" for="phone-number">Phone Number <span class="text-danger">*</span></label>
+          <input class="form-control"
             type="number"
             name="phone-number"
-            class="formText"
             placeholder="Phone Number"
             required
           />
         </div>
 
         <div class="input-box">
-          <label for="discordTag">Discord ID: (ex. ACM#2022) </label>
-          <input
+          <label class="form-label" for="discordTag">Discord ID: (ex. ACM#2022) <span class="text-danger">*</span></label>
+          <input class="form-control"
             type="text"
             name="discordTag"
-            class="formText"
             placeholder="Discord Tag"
             id="discordTag"
             required
@@ -123,26 +126,26 @@
         </div>
 
         <div class="input-box">
-          <label for="birthday">Birthday</label>
-          <input
+          <label class="form-label" for="birthday">Birthday <span class="text-danger">*</span></label>
+          <input class="form-control"
             type="date"
             name="birthday"
-            class="formText"
             id="birthday"
             required
           />
         </div>
 
         <div class="input-box">
-          <label for="gender">Gender</label>
+          <label class="form-label" for="gender">Gender <span class="text-danger">*</span></label>
           <div class="form-check">
             <label class="form-check-label" for="female"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="radio"
                 name="gender"
                 id="female"
                 value="female"
+                required
               />
               Female
             </label>
@@ -200,7 +203,7 @@
         </div>
 
         <div class="input-box">
-          <label for="major">Major</label>
+          <label class="form-label" for="major">Major <span class="text-danger">*</span></label>
           <div class="form-check">
             <label class="form-check-label" for="pre-cs"
               ><input
@@ -209,6 +212,7 @@
                 name="major"
                 id="pre-cs"
                 value="Pre-CS"
+                required
               />
               Pre-Computer Science
             </label>
@@ -367,7 +371,7 @@
                 value=""
               />
               Other:
-              <input
+              <input class="form-control"
                 type="text"
                 name="other-major"
                 id="other-major-text"
@@ -378,8 +382,8 @@
         </div>
 
         <div class="input-box">
-          <label for="standing">Class Standing</label>
-          <select name="standing" id="standing">
+          <label class="form-label" for="standing">Class Standing <span class="text-danger">*</span></label>
+          <select class="form-select" name="standing" id="standing" required>
             <option value="Freshman">Freshman</option>
             <option value="Sophomore">Sophomore</option>
             <option value="Junior">Junior</option>
@@ -395,19 +399,19 @@
         </div>
 
         <div class="input-box">
-          <label for="Senior Design"
+          <label class="form-label" for="Senior Design"
             >Are you taking Senior Design in 2022-2023 (for ECST
-            students)?</label
+            students)? <span class="text-danger">*</span></label
           >
-          <select name="senior-design" id="senior-design">
+          <select class="form-select" name="senior-design" id="senior-design" required>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
         </div>
 
         <div class="input-box">
-          <label for="graduation-year"
-            >If you are a student, what is your expected graduation year?</label
+          <label class="form-label" for="graduation-year"
+            >If you are a student, what is your expected graduation year? <span class="text-danger">*</span></label
           >
           <div class="form-check">
             <label class="form-check-label" for="fall23"
@@ -417,6 +421,7 @@
                 name="gradyear"
                 id="fall23"
                 value="Fall 2023"
+                requried
               />
               Fall 2023
             </label>
@@ -440,9 +445,9 @@
                 type="radio"
                 name="gradyear"
                 id="fall24"
-                value="Spring 2024"
+                value="Fall 2024"
               />
-              Mechanical Engineering
+              Fall 2024
             </label>
           </div>
           <div class="form-check">
@@ -459,7 +464,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="fall25"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="radio"
                 name="gradyear"
@@ -471,7 +476,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="spring26"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="radio"
                 name="gradyear"
@@ -483,7 +488,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="fall26"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="radio"
                 name="gradyear"
@@ -495,7 +500,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="spring27"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="radio"
                 name="gradyear"
@@ -507,7 +512,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="fall27"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="radio"
                 name="gradyear"
@@ -519,7 +524,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="spring28"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="radio"
                 name="gradyear"
@@ -531,7 +536,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="other-year">
-              <input
+              <input 
                 class="form-check-input"
                 type="radio"
                 name="gradyear"
@@ -539,7 +544,7 @@
                 value=""
               />
               Other:
-              <input
+              <input class="form-control"
                 type="text"
                 name="other-year"
                 id="other-year-text"
@@ -550,22 +555,23 @@
         </div>
 
         <div class="input-box">
-          <label for="hear-about-ACM">How did you hear about ACM? </label>
+          <label class="form-label" for="hear-about-ACM">How did you hear about ACM? <span class="text-danger">*</span></label>
           <div class="form-check">
             <label class="form-check-label" for="acmweb"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
                 id="acmweb"
                 value="ACM-Web"
+                required
               />
               ACM Website
             </label>
           </div>
           <div class="form-check">
             <label class="form-check-label" for="acmflyer"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
@@ -577,7 +583,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="social"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
@@ -589,7 +595,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="ecst"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
@@ -601,7 +607,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="cs1010"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
@@ -613,7 +619,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="cs201x"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
@@ -625,7 +631,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="otherrecuitment"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
@@ -637,7 +643,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="friend"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
@@ -649,14 +655,14 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="other-hear">
-              <input
+              <input 
                 class="form-check-input"
                 type="checkbox"
                 name="hear"
                 id="other-hear"
               />
               Other:
-              <input
+              <input class="form-control"
                 type="text"
                 name="other-hear"
                 id="other-hear-text"
@@ -667,25 +673,26 @@
         </div>
 
         <div class="input-box">
-          <label for="gain-from-ACM"
-            >What do you expect to gain from ACM?/label>
+          <label class="form-label" for="gain-from-ACM"
+            >What do you expect to gain from ACM? <span class="text-danger">*</span></label>
             </select>
           </label>
           <div class="form-check">
-            <label class="form-check-label" for="career"
-              ><input
+            <label class="form-label" for="career"
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="gain"
                 id="career"
                 value="career-guide"
+                required
               />
               Career guidance
             </label>
           </div>
           <div class="form-check">
             <label class="form-check-label" for="network"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="gain"
@@ -697,7 +704,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="leadership"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="gain"
@@ -709,7 +716,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="projectexp"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="gain"
@@ -721,7 +728,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="internship"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="gain"
@@ -733,7 +740,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="scholarship"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="gain"
@@ -745,7 +752,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="mentorship"
-              ><input
+              ><input 
                 class="form-check-input"
                 type="checkbox"
                 name="gain"
@@ -757,14 +764,14 @@
           </div>
           <div class="form-check">
             <label class="form-check-label" for="other-gain">
-              <input
+              <input 
                 class="form-check-input"
                 type="checkbox"
                 name="gain"
                 id="other-gain"
               />
               Other:
-              <input
+              <input class="form-control"
                 type="text"
                 name="other-gain"
                 id="other-gain-text"
@@ -775,54 +782,159 @@
         </div>
 
         <div class="input-box">
-          <label for="buddy"
+          <label class="form-label" for="buddy"
             >Buddy System (Direct correspondence and access to an ACM
-            leader)</label
+            leader) <span class="text-danger">*</span></label
           >
-          <select name="buddy" id="buddy">
+          <select class="form-select" name="buddy" id="buddy" required>
             <option value="Opt in">Opt in</option>
             <option value="Opt out">Opt out</option>
           </select>
         </div>
 
         <div class="input-box">
-          <label for="project-workshop"
+          <label class="form-label" for="project-workshop"
             >Project Workshops you'd be interested in for Fall 2023 (Note that
-            you still have to do the official sign-ups on our website)</label
+            you still have to do the official sign-ups on our website) <span class="text-danger">*</span></label
           >
-          <select name="project-workshop" id="project-workshop" multiple>
-            <option value="wordle-game">
-              Wordle Game (For beginners with little to no coding expericence)
-            </option>
-            <option value="unity-game">
-              Unity 2d Sidescroller (For more advanced coders)
-            </option>
-            <option value="not-interested">Not Interested</option>
-          </select>
+          <div class="form-check">
+            <label class="form-check-label" for="beginners"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="project-workshop"
+                id="beginners"
+                value="beginners"
+                required
+              />
+              Beginners level: Wordle Game
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="advanced"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="project-workshop"
+                id="advanced"
+                value="advanced"
+              />
+              Advanced level: Unity 2d Sidescroller
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="nothing"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="project-workshop"
+                id="nothing"
+                value="nothing"
+              />
+              Not interested
+            </label>
+          </div>
+          
         </div>
 
         <div class="input-box">
-          <label for="avalibility"
+          <label class="form-label" for="avalibility"
             >What dates are you usually most free? (Tuesdays & Thursdays at
-            3:00-4:20 p.m. are typically when ACM has meetings)</label
+            3:00-4:20 p.m. are typically when ACM has meetings) <span class="text-danger">*</span></label
           >
-          <select name="avalibility" id="avalibility" multiple>
-            <option value="Sunday">Sunday</option>
-            <option value="Monday">Monday</option>
-            <option value="Tuesday">Tuesday</option>
-            <option value="Wednesday">Wednesday</option>
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-            <option value="Saturday">Saturday</option>
-          </select>
+          <div class="form-check">
+            <label class="form-check-label" for="sunday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="avalibility"
+                id="sunday"
+                value="sunday"
+                required
+              />
+              Sunday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="monday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="monday"
+                value="monday"
+              />
+              Monday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="tuesday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="tuesday"
+                value="tuesday"
+              />
+              Tuesday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="wednesday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="wednesday"
+                value="wednesday"
+              />
+              Wednesday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="thursday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="thursday"
+                value="thursday"
+              />
+              Thursday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="friday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="friday"
+                value="friday"
+              />
+              Friday
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="saturday"
+              ><input 
+                class="form-check-input"
+                type="checkbox"
+                name="availability"
+                id="saturday"
+                value="saturday"
+              />
+              Saturday
+            </label>
+          </div>
         </div>
         <div class="input-box">
-          <label for="recommendations"
+          <label class="form-label" for="recommendations"
             >Please provide some recommendations of projects and endeavors ACM
             should consider implementing in the near future or any thoughts you
-            might have. Type "N/A" if none comes to mind.</label
+            might have. Type "N/A" if none comes to mind. <span class="text-danger">*</span></label
           >
-          <input
+          <input class="form-control"
             type="text"
             name="recommendations"
             class="formText"
@@ -832,10 +944,10 @@
         </div>
 
         <div class="input-box">
-          <label for="confirmation"
-            >Please enter your email address again as confirmation</label
+          <label class="form-label" for="confirmation"
+            >Please enter your email address again as confirmation <span class="text-danger">*</span></label
           >
-          <input
+          <input class="form-control"
             type="email"
             name="confirmation"
             class="formText"
@@ -843,7 +955,7 @@
             required
           />
         </div>
-        <button>Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
 
