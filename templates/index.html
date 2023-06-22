@@ -198,9 +198,7 @@
               Other:
               <input class="form-control"
                 type="text"
-                name="other-gender"
                 id="other-gender-text"
-                disabled
               />
             </label>
           </div>
@@ -377,9 +375,7 @@
               Other:
               <input class="form-control"
                 type="text"
-                name="other-major"
                 id="other-major-text"
-                disabled
               />
             </label>
           </div>
@@ -550,16 +546,15 @@
               Other:
               <input class="form-control"
                 type="text"
-                name="other-year"
                 id="other-year-text"
-                disabled
               />
             </label>
           </div>
         </div>
 
-        <div class="input-box">
+        <div id="hear-section" class="input-box">
           <label class="form-label" for="hear-about-ACM">How did you hear about ACM? <span class="text-danger">*</span></label>
+          <div id="validate-input" class="text-warning" hidden>Please fill out this field</div>
           <div class="form-check">
             <label class="form-check-label" for="acmweb"
               ><input 
@@ -663,13 +658,12 @@
                 type="checkbox"
                 name="hear"
                 id="other-hear"
+                value=""
               />
               Other:
               <input class="form-control"
                 type="text"
-                name="other-hear"
                 id="other-hear-text"
-                disabled
               />
             </label>
           </div>
@@ -772,13 +766,12 @@
                 type="checkbox"
                 name="gain"
                 id="other-gain"
+                value=""
               />
               Other:
               <input class="form-control"
                 type="text"
-                name="other-gain"
                 id="other-gain-text"
-                disabled
               />
             </label>
           </div>
@@ -806,7 +799,7 @@
                 ><input 
                   class="form-check-input"
                   type="checkbox"
-                  name="project-workshop[]"
+                  name="project-workshop"
                   id="beginners"
                   value="beginners"
                 />
@@ -818,7 +811,7 @@
                 ><input 
                   class="form-check-input"
                   type="checkbox"
-                  name="project-workshop[]"
+                  name="project-workshop"
                   id="advanced"
                   value="advanced"
                 />
@@ -830,7 +823,7 @@
                 ><input 
                   class="form-check-input"
                   type="checkbox"
-                  name="project-workshop[]"
+                  name="project-workshop"
                   id="nothing"
                   value="nothing"
                 />
@@ -960,7 +953,7 @@
             required
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" id="sub_button">Submit</button>
       </form>
     </div>
 
@@ -987,52 +980,63 @@
 
 
         /***************************************
-        This code section disables/enables textboxes
-        when interacting "other" check/radio buttons
+        This code section handles "other" data
+        field in checkboxes and radio buttons
         ****************************************/
-        $('input:radio[name="gender"]').change(function () {
-          var bool = $(this).val() !== "";
-          $("#other-gender-text").prop("disabled", bool);
-          console.log($('input:radio[name="gender"]').val());
-
+        $('input:text[id="other-gender-text"]').change(function () {
+          var input = $(this).val();
+          $('input:radio[id="other-gender"]').val(input);
         });
-        $('input:radio[name="major"]').change(function () {
-          var bool = $(this).val() !== "";
-          $("#other-major-text").prop("disabled", bool);
+        $('input:text[id="other-major-text"]').change(function () {
+          var input = $(this).val();
+          $('input:radio[id="other-major"]').val(input);
         });
-        $('input:radio[name="gradyear"]').change(function () {
-          var bool = $(this).val() !== "";
-          $("#other-year-text").prop("disabled", bool);
+        $('input:text[id="other-year-text"]').change(function () {
+          var input = $(this).val();
+          $('input:radio[id="other-year"]').val(input);
         });
-        $('input:checkbox[name="hear"]').change(function () {
-          if ($("#other-hear").is(":checked")) {
-            $("#other-hear-text").prop("disabled", false);
-          } else {
-            $("#other-hear-text").prop("disabled", true);
-          }
+        $('input:text[id="other-hear-text"]').change(function () {
+          var input = $(this).val();
+          $('input:checkbox[id="other-hear"]').val(input);
         });
-        $('input:checkbox[name="gain"]').change(function () {
-          if ($("#other-gain").is(":checked")) {
-            $("#other-gain-text").prop("disabled", false);
-          } else {
-            $("#other-gain-text").prop("disabled", true);
-          }
+        $('input:text[id="other-gain-text"]').change(function () {
+          var input = $(this).val();
+          $('input:checkbox[id="other-gain"]').val(input);
         });
         /**********************************************/
 
 
-        $(".membershipForm").validate({
-          rules: {
-            'project-workshop[]': {
-              required: true
-            }
-          },
-        });
 
-        $(".hear-about-select").selectpicker();
-        $("#gain-from-ACM").selectpicker();
-        $("#project-workshop[]").selectpicker();
-        $("#avalibility").selectpicker();
+        /***************************************
+        This section validates the checkboxes
+        ****************************************/
+        $("#sub_button").on('click', function () {
+          var hearCheck = $('input[name="hear"]').serializeArray();
+          var gainCheck = $('input[name="gain"]').serializeArray();
+          var projCheck = $('input[name="project-workshop"]').serializeArray();
+          var availCheck = $('input[name="availability"]').serializeArray();
+
+          if(hearCheck.length == 0){
+            alert("You have missing checkbox fields");
+            return false;
+          }
+          else if(gainCheck.length == 0){
+            alert("You have missing checkbox fields");
+            return false;
+          }
+          else if(projCheck.length == 0){
+            alert("You have missing checkbox fields");
+            return false;
+          }
+          else if(availCheck.length == 0){
+            alert("You have missing checkbox fields");
+            return false;
+          }
+          else 
+            return true;
+          
+        });
+        /**********************************************/
       });
     </script>
   </body>
