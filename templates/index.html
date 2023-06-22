@@ -568,7 +568,6 @@
                 name="hear"
                 id="acmweb"
                 value="ACM-Web"
-                required
               />
               ACM Website
             </label>
@@ -681,6 +680,7 @@
             >What do you expect to gain from ACM? <span class="text-danger">*</span></label>
             </select>
           </label>
+
           <div class="form-check">
             <label class="form-label" for="career"
               ><input 
@@ -689,7 +689,6 @@
                 name="gain"
                 id="career"
                 value="career-guide"
-                required
               />
               Career guidance
             </label>
@@ -801,48 +800,51 @@
             >Project Workshops you'd be interested in for Fall 2023 (Note that
             you still have to do the official sign-ups on our website) <span class="text-danger">*</span></label
           >
-          <div class="form-check">
-            <label class="form-check-label" for="beginners"
-              ><input 
-                class="form-check-input"
-                type="checkbox"
-                name="project-workshop"
-                id="beginners"
-                value="beginners"
-                required
-              />
-              Beginners level: Wordle Game
-            </label>
+          <div class="checkbox-projects">
+            <div class="form-check">
+              <label class="form-check-label" for="beginners"
+                ><input 
+                  class="form-check-input"
+                  type="checkbox"
+                  name="project-workshop[]"
+                  id="beginners"
+                  value="beginners"
+                />
+                Beginners level: Wordle Game
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label" for="advanced"
+                ><input 
+                  class="form-check-input"
+                  type="checkbox"
+                  name="project-workshop[]"
+                  id="advanced"
+                  value="advanced"
+                />
+                Advanced level: Unity 2d Sidescroller
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label" for="nothing"
+                ><input 
+                  class="form-check-input"
+                  type="checkbox"
+                  name="project-workshop[]"
+                  id="nothing"
+                  value="nothing"
+                />
+                Not interested
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <label class="form-check-label" for="advanced"
-              ><input 
-                class="form-check-input"
-                type="checkbox"
-                name="project-workshop"
-                id="advanced"
-                value="advanced"
-              />
-              Advanced level: Unity 2d Sidescroller
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="nothing"
-              ><input 
-                class="form-check-input"
-                type="checkbox"
-                name="project-workshop"
-                id="nothing"
-                value="nothing"
-              />
-              Not interested
-            </label>
-          </div>
+
+          
           
         </div>
 
         <div class="input-box">
-          <label class="form-label" for="avalibility"
+          <label class="form-label" for="availability"
             >What dates are you usually most free? (Tuesdays & Thursdays at
             3:00-4:20 p.m. are typically when ACM has meetings) <span class="text-danger">*</span></label
           >
@@ -851,10 +853,9 @@
               ><input 
                 class="form-check-input"
                 type="checkbox"
-                name="avalibility"
+                name="availability"
                 id="sunday"
                 value="sunday"
-                required
               />
               Sunday
             </label>
@@ -992,6 +993,8 @@
         $('input:radio[name="gender"]').change(function () {
           var bool = $(this).val() !== "";
           $("#other-gender-text").prop("disabled", bool);
+          console.log($('input:radio[name="gender"]').val());
+
         });
         $('input:radio[name="major"]').change(function () {
           var bool = $(this).val() !== "";
@@ -1017,9 +1020,18 @@
         });
         /**********************************************/
 
+
+        $(".membershipForm").validate({
+          rules: {
+            'project-workshop[]': {
+              required: true
+            }
+          },
+        });
+
         $(".hear-about-select").selectpicker();
         $("#gain-from-ACM").selectpicker();
-        $("#project-workshop").selectpicker();
+        $("#project-workshop[]").selectpicker();
         $("#avalibility").selectpicker();
       });
     </script>
