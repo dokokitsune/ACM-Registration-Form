@@ -788,7 +788,7 @@
           </select>
         </div>
 
-        <div class="input-box">
+        <div id="projectSection" class="input-box">
           <label class="form-label" for="project-workshop"
             >Project Workshops you'd be interested in for Fall 2023 (Note that
             you still have to do the official sign-ups on our website) <span class="text-danger">*</span></label
@@ -819,13 +819,13 @@
               </label>
             </div>
             <div class="form-check">
-              <label class="form-check-label" for="nothing"
+              <label class="form-check-label" for="notInterested"
                 ><input 
                   class="form-check-input"
                   type="checkbox"
                   name="project-workshop"
-                  id="nothing"
-                  value="nothing"
+                  id="notInterested"
+                  value="notInterested"
                 />
                 Not interested
               </label>
@@ -1037,6 +1037,16 @@
           
         });
         /**********************************************/
+        $('#beginners').click(function () {
+          $('#notInterested').prop('checked', false);
+        });
+        $('#advanced').click(function () {
+          $('#notInterested').prop('checked', false);
+        });
+        $('#notInterested').click(function () {
+          $('#beginners').prop('checked', false);
+          $('#advanced').prop('checked', false);
+        });
       });
     </script>
   </body>
