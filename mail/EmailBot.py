@@ -9,8 +9,8 @@ from email.mime.image import MIMEImage
 
 
 class MailBot:
-    sender = "jarvismark01v@gmail.com"
-    credential = os.environ.get("password")
+    sender = "jarvismark01v@gmail.com"  # update this
+    credential = os.environ.get("password")  # update this
     print(credential)
 
     def __init__(self, receiver=None, subject=None, message=None):
