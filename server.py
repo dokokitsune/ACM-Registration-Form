@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-import csv
+from utilities import writer, utility
+from mail.EmailBot import MailBot
 
 app = Flask(__name__)
 
@@ -13,28 +14,24 @@ def main_page():
 def submit_form():
     print("submit form")
     if request.method == "POST":
-        data = request.form.to_dict()
-        data['gain'] = request.form.getlist('gain')
-        data['project-workshop'] = request.form.getlist('project-workshop')
-        data['hear'] = request.form.getlist('hear')
-        data['availability'] = request.form.getlist('availability')
+        data = utility.get_data(request)
 
-        write_to_csv(data)
-        print(data)
+        # write_to_csv(data)
+        writer.write_to_csv(data)
+
+        # send email
+        send_email(data)
+
         return "Submitted"
 
 
-def write_to_csv(data):
-    with open("database.csv", newline="", mode="a") as csv_database:
-        first, last, gender, major, gradyear = (
-            data["firstName"],
-            data["lastName"],
-            data["gender"],
-            data["major"],
-            data["gradyear"],
+def send_email(data):
+    try:
+        reciever, full_name = data[1], data[3] + " " + data[4]
+        mail_bot = MailBot(reciever, "Welcome New ACM Member")
+        mail_bot.send_html_email(
+            file="./static/welcome.html", name=full_name, img="./static/images/acm.png"
         )
-        csv_writer = csv.writer(
-            csv_database, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
-        )
-        csv_writer.writerow([first, last, gender, major, gradyear])
 
+    except:
+        writer.write_txt(f"Unable to send email to {data[1]}")
