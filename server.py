@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import csv
-from mail import EmailBot
 
 app = Flask(__name__)
 
@@ -21,9 +20,7 @@ def submit_form():
         data['availability'] = request.form.getlist('availability')
 
         write_to_csv(data)
-        print(request.form.get("Email"))
-        EmailBot.MailBot("joloh18@yahoo.com",
-                  "Welcome to the ACM club 2023-2024!").send_html_email("./static/welcome.html",request.form.get("firstName"), "./static/images/acm.png")
+        print(data)
         return "Submitted"
 
 
@@ -40,3 +37,4 @@ def write_to_csv(data):
             csv_database, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
         )
         csv_writer.writerow([first, last, gender, major, gradyear])
+
