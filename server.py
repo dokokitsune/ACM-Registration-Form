@@ -43,15 +43,17 @@ def write_to_csv(data):
     confirm_email = data["confirmation"]
 
     with open("database.csv", newline="", mode="a") as csv_database:
-        email, message, subject = (
+        first, last, gender, major, gradyear = (
             data["firstName"],
             data["lastName"],
-            data["project-workshop"],
+            data["gender"],
+            data["major"],
+            data["gradyear"],
         )
-        csv_writer = csv.writer(
-            csv_database, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
-        )
-        csv_writer.writerow([email, subject, message])
+        # csv_writer = csv.writer(
+        #    csv_database, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
+        # )
+        # csv_writer.writerow([email, subject, message])
 
 
 def get_data(request):
