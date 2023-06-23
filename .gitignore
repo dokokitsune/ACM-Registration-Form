@@ -5,5 +5,7 @@
 
 # Ignore specific files
 /mail/test.py
+/mail/__pycache__
+/utilties/__pycache__
 *.md
 *.cfg

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-import csv
+from utilities import writer, utility
+from mail.EmailBot import MailBot
 
 app = Flask(__name__)
 
@@ -13,87 +14,24 @@ def main_page():
 def submit_form():
     print("submit form")
     if request.method == "POST":
-        # data = request.form.to_dict()
-        # print(request.form.getlist("availability"))
-        # print(data)
-        get_data(request)
+        data = utility.get_data(request)
 
         # write_to_csv(data)
+        writer.write_to_csv(data)
+
+        # send email
+        send_email(data)
+
         return "Submitted"
 
 
-def write_to_csv(data):
-    email = data["Email"]
-    membership_status = data["membership"]
-    first_name = data["firstName"]
-    last_name = data["lastName"]
-    id = data["cin"]
-    phone_number = data["phone-number"]
-    discord_tag = data["discordTag"]
-    gender = data["gender"]
-    major = data["major"]
-    grade = data["standing"]
-    senior_design = data["senior-design"]
-    graduation_year = data["gradyear"]
-    hear = data["hear"]
-    buddy_system = data["buddy"]
-    project_workshop = data["project-workshop"]
-    avalibility = data["avalibility"]
-    suggestion = data["recommendations"]
-    confirm_email = data["confirmation"]
-
-    with open("database.csv", newline="", mode="a") as csv_database:
-        first, last, gender, major, gradyear = (
-            data["firstName"],
-            data["lastName"],
-            data["gender"],
-            data["major"],
-            data["gradyear"],
+def send_email(data):
+    try:
+        reciever, full_name = data[1], data[3] + " " + data[4]
+        mail_bot = MailBot(reciever, "Welcome New ACM Member")
+        mail_bot.send_html_email(
+            file="./static/welcome.html", name=full_name, img="./static/images/acm.png"
         )
-        # csv_writer = csv.writer(
-        #    csv_database, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
-        # )
-        # csv_writer.writerow([email, subject, message])
 
-
-def get_data(request):
-    data = request.form.to_dict()
-    print(data)
-    """email = data['Email']
-    membership_status = data["membership"]
-    first_name = data["firstName"]
-    last_name = data["lastName"]
-    id = data["cin"]
-    phone_number = data["phone-number"]
-    discord_tag = data["discordTag"]
-    gender = data["gender"]
-    major = data["major"]
-    grade = data['standing']
-    senior_design = data['senior-design']
-    graduation_year = data['gradyear']
-    hear = data['hear']
-    career_expectation = data['gain']
-    buddy_system = data['buddy']
-    project_workshop = data['project-workshop']
-    avalibility = data['avalibility']
-    suggestion = data['recommendations']
-    confirm_email = data['confirmation']"""
-
-    hear = request.form.getlist("hear")
-    career_expectation = request.form.getlist("gain")
-    project_workshop = request.form.getlist("project-workshop")
-    availability = request.form.getlist("availability")
-
-    print(extract_from_list(hear))
-    print(extract_from_list(career_expectation))
-    print(extract_from_list(project_workshop))
-    print(extract_from_list(availability))
-
-
-# Takes an array and returns a string
-def extract_from_list(arr):
-    result = ""
-    for word in arr:
-        result += word + " "
-
-    return result
+    except:
+        writer.write_txt(f"Unable to send email to {data[1]}")
