@@ -1,4 +1,6 @@
 from datetime import date
+import os
+import writer
 
 
 # takes the raw data from dictonary and turns them into list
@@ -41,3 +43,17 @@ def extract_string_from_list(arr):
 # returns the current time
 def get_date_stamp():
     return date.today()
+
+
+def retrieve_key():
+    file_path = os.path.expanduser("~/.bashrc")
+    variable_name = "secret_key"
+
+    with open(file_path, "r") as file:
+        for line in file:
+            if line.startswith("export") and variable_name in line:
+                value = line.split("=")[1].strip().strip('"')
+                return value
+
+        writer.write_txt("key not found")
+        raise NameError("key not found")
