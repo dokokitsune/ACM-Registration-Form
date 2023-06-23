@@ -1,6 +1,6 @@
 from datetime import date
 import os
-import writer
+from utilities import writer
 
 
 # takes the raw data from dictonary and turns them into list

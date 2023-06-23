@@ -6,12 +6,13 @@ from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
-
+from utilities import utility
+from utilities import writer
 
 class MailBot:
-    sender = "jarvismark01v@gmail.com"  # update this
-    credential = os.environ.get("password")  # update this
-    print(credential)
+    sender = "acm.csula.web@gmail.com"  # update this
+    credential = utility.retrieve_key()  # update this
+    #print(credential)
 
     def __init__(self, receiver=None, subject=None, message=None):
         self.receiver = receiver
@@ -33,7 +34,7 @@ class MailBot:
             email = EmailMessage()
 
             # Email From, Email To
-            email["from"] = "Jarvis"
+            email["from"] = "ACM"
             email["To"] = self.receiver
             email["subject"] = self.subject
             email.set_content(self.message)
@@ -59,11 +60,11 @@ class MailBot:
         email = EmailMessage()
 
         # Email From, Email To
-        email["from"] = "Jarvis"
+        email["from"] = "ACM"
         email["To"] = self.receiver
         email["subject"] = self.subject
         # email.set_content(html_file.substitute({"name": name}), "html")
-        email.add_alternative(html_message, subtype="related")
+        email.set_content(html_message)
 
         # sending email via gmail
         try:
@@ -95,6 +96,7 @@ def getContent(file, name, image):
 
             return html_message
     except:
+        writer.write_txt(f"Unable to open {image}. Check whether the {image} is /assets directory")
         raise FileNotFoundError(
             f"Unable to open {image}. Check whether the {image} is /assets directory"
         )
