@@ -9,10 +9,7 @@ from email.mime.image import MIMEImage
 
 
 class MailBot:
-    sender = "jarvismark01v@gmail.com"
-    credential = os.environ.get("password")
-    print(credential)
-
+    sender = "acm.csula.web@gmail.com"
     def __init__(self, receiver=None, subject=None, message=None):
         self.receiver = receiver
         self.subject = subject
@@ -31,18 +28,19 @@ class MailBot:
     def send_email(self):
         if self.receiver and self.subject and self.message:
             email = EmailMessage()
-
+            
             # Email From, Email To
-            email["from"] = "Jarvis"
+            email["from"] = "ACM"
             email["To"] = self.receiver
             email["subject"] = self.subject
             email.set_content(self.message)
+
 
             # Sending email via gmail
             with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
                 smtp.ehlo()
                 smtp.starttls()
-                smtp.login(self.sender, self.credential)
+                smtp.login(self.sender, retrieve_key())
                 smtp.send_message(email)
 
         else:
@@ -53,13 +51,12 @@ class MailBot:
         # HTML Email Template
         # html_file = (Template(Path("welcome.html").read_text())).substitute(
         # {"name": name}, "html")
-
         html_message = getContent(file=file, name=name, image=img)
 
         email = EmailMessage()
 
         # Email From, Email To
-        email["from"] = "Jarvis"
+        email["from"] = "ACM"
         email["To"] = self.receiver
         email["subject"] = self.subject
         # email.set_content(html_file.substitute({"name": name}), "html")
@@ -70,7 +67,7 @@ class MailBot:
             with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
                 smtp.ehlo()
                 smtp.starttls()
-                smtp.login(self.sender, self.credential)
+                smtp.login(self.sender, retrieve_key())
                 smtp.send_message(email)
 
         except:
@@ -98,3 +95,15 @@ def getContent(file, name, image):
         raise FileNotFoundError(
             f"Unable to open {image}. Check whether the {image} is /assets directory"
         )
+
+def retrieve_key():
+    file_path = os.path.expanduser("~/.bashrc")
+    variable_name = "PASSWORD"
+    with open(file_path, "r") as file:
+        for line in file:
+            if variable_name in line:
+                value = line.split("=")[1].strip().strip('"')
+                return(value)
+        
+        raise NameError('key not found')
+    
