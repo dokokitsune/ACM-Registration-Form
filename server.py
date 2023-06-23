@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utilities import writer, utility
+from utilities import utility, writer
 from mail.EmailBot import MailBot
 
 app = Flask(__name__)
@@ -30,8 +30,9 @@ def send_email(data):
         reciever, full_name = data[1], data[3] + " " + data[4]
         mail_bot = MailBot(reciever, "Welcome New ACM Member")
         mail_bot.send_html_email(
-            file="./static/welcome.html", name=full_name, img="./static/images/acm.png"
+            file="/home/acmcsulaweb/ACM-Registration-Form/static/welcome.html", name=full_name, img="/home/acmcsulaweb/ACM-Registration-Form/static/images/acm.png"
         )
 
     except:
+        pass
         writer.write_txt(f"Unable to send email to {data[1]}")
