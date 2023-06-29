@@ -23,6 +23,19 @@ body{
 
 }
 
+.Thank-you{
+    display: flex;
+    margin: 25px;
+    border-radius: 25px;
+    margin-top: 25vh;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+
 /* .container{
     position: relative;
    

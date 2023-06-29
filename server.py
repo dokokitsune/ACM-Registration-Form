@@ -12,7 +12,7 @@ def main_page():
 
 @app.route("/submit_form", methods=["POST", "GET"])
 def submit_form():
-    print("submit form")
+    # print("submit form")
     if request.method == "POST":
         data = utility.get_data(request)
 
@@ -22,7 +22,7 @@ def submit_form():
         # send email
         send_email(data)
 
-        return "Submitted"
+        return render_template("submitted.html")
 
 
 def send_email(data):
