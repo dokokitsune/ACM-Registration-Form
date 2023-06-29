@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from utilities import utility, writer
 from mail.EmailBot import MailBot
+from sheets.googlesheets import addData
 
 app = Flask(__name__)
 
@@ -15,10 +16,9 @@ def submit_form():
     # print("submit form")
     if request.method == "POST":
         data = utility.get_data(request)
-
         # write_to_csv(data)
         writer.write_to_csv(data)
-
+        addData(data)
         # send email
         send_email(data)
 

@@ -1,4 +1,4 @@
-from datetime import date
+import datetime
 import os
 from utilities import writer
 
@@ -7,7 +7,7 @@ from utilities import writer
 def get_data(request):
     data = request.form.to_dict()
     student_info = []
-    student_info.append(get_date_stamp())
+    student_info.append(datetime.date.today().strftime("%B %d, %Y"))
     for key in data.keys():
         if (
             key == "hear"
