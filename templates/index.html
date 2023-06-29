@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ACM Membership Form</title>
+    <title> ACM Membership Form</title>
+    <link rel="icon" href="../static/images/acm.png">
     <link rel="stylesheet" href="../static/styles.css" />
     <link
       rel="stylesheet"
@@ -115,7 +116,8 @@
         </div>
 
         <div class="input-box">
-          <label class="form-label" for="discordTag">Discord ID: (ex. ACM#2022) <span class="text-danger">*</span></label>
+          <label class="form-label" for="discordTag">Discord ID: (ex. ACM#2022 or ACM if you've updated your username) <span class="text-danger">*</span></label>
+          <ul><li>If you don't have one, you can register at: <a href="https://discord.com/register">https://discord.com/register</a></li></ul>
           <input class="form-control"
             type="text"
             name="discordTag"
@@ -193,7 +195,7 @@
                 type="radio"
                 name="gender"
                 id="other-gender"
-                value=""
+                value="gender"
               />
               Other:
               <input class="form-control"
@@ -370,7 +372,7 @@
                 type="radio"
                 name="major"
                 id="other-major"
-                value=""
+                value="other"
               />
               Other:
               <input class="form-control"
@@ -541,7 +543,7 @@
                 type="radio"
                 name="gradyear"
                 id="other-year"
-                value=""
+                value="other"
               />
               Other:
               <input class="form-control"
@@ -658,7 +660,7 @@
                 type="checkbox"
                 name="hear"
                 id="other-hear"
-                value=""
+                value="other"
               />
               Other:
               <input class="form-control"
@@ -766,7 +768,7 @@
                 type="checkbox"
                 name="gain"
                 id="other-gain"
-                value=""
+                value="other"
               />
               Other:
               <input class="form-control"
@@ -780,7 +782,7 @@
         <div class="input-box">
           <label class="form-label" for="buddy"
             >Buddy System (Direct correspondence and access to an ACM
-            leader) <span class="text-danger">*</span></label
+            leader through <b>email</b>, <b>text</b> and <b>discord</b>   ) <span class="text-danger">*</span></label
           >
           <select class="form-select" name="buddy" id="buddy" required>
             <option value="Opt in">Opt in</option>
