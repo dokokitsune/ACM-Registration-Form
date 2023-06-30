@@ -137,7 +137,7 @@
           />
         </div>
 
-        <div class="input-box">
+        <div class="input-box" id="gender-radio">
           <label class="form-label" for="gender">Gender <span class="text-danger">*</span></label>
           <div class="form-check">
             <label class="form-check-label" for="female"
@@ -206,7 +206,7 @@
           </div>
         </div>
 
-        <div class="input-box">
+        <div class="input-box" id="major-radio">
           <label class="form-label" for="major">Major <span class="text-danger">*</span></label>
           <div class="form-check">
             <label class="form-check-label" for="pre-cs"
@@ -411,7 +411,7 @@
           </select>
         </div>
 
-        <div class="input-box">
+        <div class="input-box" id="year-radio">
           <label class="form-label" for="graduation-year"
             >If you are a student, what is your expected graduation year? <span class="text-danger">*</span></label
           >
@@ -554,7 +554,7 @@
           </div>
         </div>
 
-        <div id="hear-section" class="input-box">
+        <div id="hear-radio" class="input-box">
           <label class="form-label" for="hear-about-ACM">How did you hear about ACM? <span class="text-danger">*</span></label>
           <div id="validate-input" class="text-warning" hidden>Please fill out this field</div>
           <div class="form-check">
@@ -671,7 +671,7 @@
           </div>
         </div>
 
-        <div class="input-box">
+        <div class="input-box" id="gain-radio">
           <label class="form-label" for="gain-from-ACM"
             >What do you expect to gain from ACM? <span class="text-danger">*</span></label>
             </select>
@@ -1010,7 +1010,71 @@
 
 
         /***************************************
-        This section validates the checkboxes
+        This code section handles "other" checkbox/radio button
+        as required when selected
+        ****************************************/
+        $('#gender-radio').change(function () {
+          if ($('#other-gender').is(':checked')){
+            $('#other-gender-text').attr("required", true);
+            console.log("checked");
+          }
+          else{
+            $('#other-gender-text').attr("required", false);
+            console.log("not checked");
+          }
+        });
+
+        $('#major-radio').change(function () {
+          if ($('#other-major').is(':checked')){
+            $('#other-major-text').attr("required", true);
+            console.log("checked");
+          }
+          else{
+            $('#other-major-text').attr("required", false);
+            console.log("not checked");
+          }
+        });
+
+        $('#year-radio').change(function () {
+          if ($('#other-year').is(':checked')){
+            $('#other-year-text').attr("required", true);
+            console.log("checked");
+          }
+          else{
+            $('#other-year-text').attr("required", false);
+            console.log("not checked");
+          }
+        });
+
+        $('#hear-radio').change(function () {
+          if ($('#other-hear').is(':checked')){
+            $('#other-hear-text').attr("required", true);
+            console.log("checked");
+          }
+          else{
+            $('#other-hear-text').attr("required", false);
+            console.log("not checked");
+          }
+        });
+
+        $('#gain-radio').change(function () {
+          if ($('#other-gain').is(':checked')){
+            $('#other-gain-text').attr("required", true);
+            console.log("checked");
+          }
+          else{
+            $('#other-gain-text').attr("required", false);
+            console.log("not checked");
+          }
+        });
+        /**********************************************/
+
+
+
+        /***************************************
+        - This section validates the checkboxes
+        - Also validates whether user checked "other"
+        with text inside
         ****************************************/
         $("#sub_button").on('click', function () {
           var hearCheck = $('input[name="hear"]').serializeArray();
@@ -1036,9 +1100,15 @@
           }
           else 
             return true;
+
           
         });
         /**********************************************/
+
+
+        /***************************************
+        This section controls the projects checkboxes
+        ****************************************/
         $('#beginners').click(function () {
           $('#notInterested').prop('checked', false);
         });
@@ -1049,6 +1119,7 @@
           $('#beginners').prop('checked', false);
           $('#advanced').prop('checked', false);
         });
+        /**********************************************/
       });
     </script>
   </body>
