@@ -9,10 +9,11 @@ from email.mime.image import MIMEImage
 from utilities import utility
 from utilities import writer
 
+
 class MailBot:
     sender = "acm.csula.web@gmail.com"  # update this
     credential = utility.retrieve_key()  # update this
-    #print(credential)
+    # print(credential)
 
     def __init__(self, receiver=None, subject=None, message=None):
         self.receiver = receiver
@@ -78,7 +79,7 @@ class MailBot:
             raise RuntimeError(f"Unable to send emails to {self.receiver}.")
 
 
-def getContent(file, name, image):
+def getContent(file, name, acm_logo_image, paypal_logo=None):
     # Create a html template object and substitute variables in the template
     html_file = (Template(Path(file).read_text())).substitute({"name": name})
 
@@ -92,11 +93,14 @@ def getContent(file, name, image):
             image_data = file.read()
             image = MIMEImage(image_data)
             image.add_header("Content-ID", "<image>")
+            # image.add_header("Contend-ID", "<paypal>")
             html_message.attach(image)
 
             return html_message
     except:
-        writer.write_txt(f"Unable to open {image}. Check whether the {image} is /assets directory")
+        writer.write_txt(
+            f"Unable to open {image}. Check whether the {image} is /assets directory"
+        )
         raise FileNotFoundError(
             f"Unable to open {image}. Check whether the {image} is /assets directory"
         )

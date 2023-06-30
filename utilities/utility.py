@@ -40,11 +40,6 @@ def extract_string_from_list(arr):
     return result
 
 
-# returns the current time
-def get_date_stamp():
-    return date.today()
-
-
 def retrieve_key():
     file_path = os.path.expanduser("~/.bashrc")
     variable_name = "secret_key"
