@@ -40,6 +40,7 @@ def extract_string_from_list(arr):
     return result
 
 
+# This function is used to retrieve key from ~/.bashrc, only used in server
 def retrieve_key():
     file_path = os.path.expanduser("~/.bashrc")
     variable_name = "secret_key"
@@ -50,5 +51,6 @@ def retrieve_key():
                 value = line.split("=")[1].strip().strip('"')
                 return value
 
+        # if the "secret_key doesn't exist in bashrc, an error will be prompt"
         writer.write_txt("key not found")
         raise NameError("key not found")

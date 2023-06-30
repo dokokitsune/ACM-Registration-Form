@@ -15,12 +15,17 @@ def main_page():
 def submit_form():
     # print("submit form")
     if request.method == "POST":
+        # Processing dictonary data into list
         data = utility.get_data(request)
-        # write_to_csv(data)
+
+        # Using the list to save all data as csv for backup
         writer.write_to_csv(data)
-        addData(data)
-        # send email
+
+        # sending a welcome email using the email & name recieved from the form
         send_email(data)
+
+        # Appending the recieved data to google sheets
+        addData(data)
 
         return render_template("submitted.html")
 
@@ -30,7 +35,9 @@ def send_email(data):
         reciever, full_name = data[1], data[3] + " " + data[4]
         mail_bot = MailBot(reciever, "Welcome New ACM Member")
         mail_bot.send_html_email(
-            file="/home/acmcsulaweb/ACM-Registration-Form/static/welcome.html", name=full_name, img="/home/acmcsulaweb/ACM-Registration-Form/static/images/acm.png"
+            file="/home/acmcsulaweb/ACM-Registration-Form/static/welcome.html",
+            name=full_name,
+            img="/home/acmcsulaweb/ACM-Registration-Form/static/images/acm.png",
         )
 
     except:
