@@ -51,12 +51,14 @@ class MailBot:
             raise ValueError("receiver or subject or message is undefined")
 
     # Sending a html email
-    def send_html_email(self, file, name, img):
+    def send_html_email(self, file, name, acm_logo, paypal):
         # HTML Email Template
         # html_file = (Template(Path("welcome.html").read_text())).substitute(
         # {"name": name}, "html")
 
-        html_message = getContent(file=file, name=name, image=img)
+        html_message = getContent(
+            file=file, name=name, acm_logo_image=acm_logo, paypal_logo=paypal
+        )
 
         email = EmailMessage()
 
@@ -80,7 +82,7 @@ class MailBot:
             raise RuntimeError(f"Unable to send emails to {self.receiver}.")
 
 
-def getContent(file, name, acm_logo_image, paypal_logo=None):
+def getContent(file, name, acm_logo_image, paypal_logo):
     # Create a html template object and substitute variables in the template
     html_file = (Template(Path(file).read_text())).substitute({"name": name})
 
@@ -94,7 +96,7 @@ def getContent(file, name, acm_logo_image, paypal_logo=None):
             image_data = file.read()
             image = MIMEImage(image_data)
             image.add_header("Content-ID", "<image>")
-            # image.add_header("Contend-ID", "<paypal>")
+            image.add_header("Contend-ID", "<paypal>")
             html_message.attach(image)
 
             return html_message

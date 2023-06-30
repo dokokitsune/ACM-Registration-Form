@@ -35,9 +35,10 @@ def send_email(data):
         reciever, full_name = data[1], data[3] + " " + data[4]
         mail_bot = MailBot(reciever, "Welcome New ACM Member")
         mail_bot.send_html_email(
-            file="/home/acmcsulaweb/ACM-Registration-Form/static/welcome.html",
+            file="./static/welcome.html",  # change this to absolute path
             name=full_name,
-            img="/home/acmcsulaweb/ACM-Registration-Form/static/images/acm.png",
+            acm_logo="./static/assets/acm.png",
+            paypal="./static/assets/donate.png",
         )
 
     except:
