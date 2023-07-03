@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from utilities import utility, writer
 from mail.EmailBot import MailBot
 from sheets.googlesheets import addData
+from mail.HtmlTemplate import HtmlTemplate
 
 app = Flask(__name__)
 
@@ -33,14 +34,19 @@ def submit_form():
 def send_email(data):
     try:
         reciever, full_name = data[1], data[3] + " " + data[4]
-        mail_bot = MailBot(reciever, "Welcome New ACM Member")
-        mail_bot.send_html_email(
-            file="./static/welcome.html",  # change this to absolute path
-            name=full_name,
-            acm_logo="./static/assets/acm.png",
-            paypal="./static/assets/donate.png",
-        )
+        mail_bot = MailBot(reciever, "Welcome New ACM Member", full_name=full_name)
 
+        html_file = HtmlTemplate(
+            "./static/welcome.html", full_name
+        )  # change to absolute path
+        html_file.add_image(
+            "./static/images/acm.png", "<image>"
+        )  # change to absolute path
+        html_file.add_image(
+            "./static/images/donate.png", "<paypal>"
+        )  # change to absolute path
+
+        mail_bot.send_html_email()
     except:
         pass
         writer.write_txt(f"Unable to send email to {data[1]}")

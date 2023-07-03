@@ -1,0 +1,36 @@
+
+def subsitute_name(file, name):
+    # Create a html template object and substitute variables in the template
+    html_file = (Template(Path(file).read_text())).substitute({"name": name})
+
+    # Create html message
+    html_message = MIMEMultipart()
+    html_message.attach(MIMEText(html_file, "html"))
+
+    return html_message
+
+
+def load_image(html_message, image_logo, paypal_logo):
+    # load and attach the image
+    try:
+        with open(image_logo, "rb") as file:
+            image_data = file.read()
+            image = MIMEImage(image_data)
+            image.add_header("Content-ID", "<image>")
+            # image.add_header("Contend-ID", "<paypal>")
+            html_message.attach(image)
+
+        with open(paypal_logo, "rb") as file:
+            image_data = file.read()
+            image = MIMEImage(image_data)
+            # image.add_header("Content-ID", "<image>")
+            image.add_header("Contend-ID", "<paypal>")
+            html_message.attach(paypal_logo)
+
+    except:
+        writer.write_txt(
+            f"Unable to open {image_logo}. Check whether the {image_logo} is /assets directory"
+        )
+        raise FileNotFoundError(
+            f"Unable to open {image_logo}. Check whether the {image_logo} is /assets directory"
+        )

@@ -8,17 +8,19 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from utilities import utility
 from utilities import writer
+from mail.HtmlTemplate import HtmlTemplate
 
 
 class MailBot:
-    sender = "acm.csula.web@gmail.com"  # update this
-    credential = utility.retrieve_key()  # update this
+    sender = "jarvismark01v@gmail.com"  # update this
+    credential = "onrvwrkofhtuxqzl"  # update this
     # print(credential)
 
-    def __init__(self, receiver=None, subject=None, message=None):
+    def __init__(self, receiver=None, subject=None, message=None, full_name=None):
         self.receiver = receiver
         self.subject = subject
         self.message = message
+        self.full_name = full_name
 
     def setReceiver(self, new_receiver):
         self.receiver = new_receiver
@@ -51,23 +53,28 @@ class MailBot:
             raise ValueError("receiver or subject or message is undefined")
 
     # Sending a html email
-    def send_html_email(self, file, name, acm_logo, paypal):
-        # HTML Email Template
-        # html_file = (Template(Path("welcome.html").read_text())).substitute(
-        # {"name": name}, "html")
+    def send_html_email(self):
+        # Setting up html email
+        html_file = HtmlTemplate(
+            "./static/welcome.html", self.full_name
+        )  # change to absolute path
 
-        html_message = getContent(
-            file=file, name=name, acm_logo_image=acm_logo, paypal_logo=paypal
-        )
+        # Adding acm logo into the html email
+        html_file.add_image(
+            "./static/images/acm.png", "<image>"
+        )  # change to absolute path
 
-        email = EmailMessage()
+        # Adding paypal logo into the html email
+        html_file.add_image(
+            "./static/images/donate.png", "<paypal>"
+        )  # change to absolute path
 
         # Email From, Email To
+        email = EmailMessage()
         email["from"] = "ACM"
         email["To"] = self.receiver
         email["subject"] = self.subject
-        # email.set_content(html_file.substitute({"name": name}), "html")
-        email.set_content(html_message)
+        email.set_content(html_file.html_message)
 
         # sending email via gmail
         try:
@@ -80,30 +87,3 @@ class MailBot:
         except:
             writer.write_txt(f"Unable to send email to {self.receiver}")
             raise RuntimeError(f"Unable to send emails to {self.receiver}.")
-
-
-def getContent(file, name, acm_logo_image, paypal_logo):
-    # Create a html template object and substitute variables in the template
-    html_file = (Template(Path(file).read_text())).substitute({"name": name})
-
-    # Create html message
-    html_message = MIMEMultipart()
-    html_message.attach(MIMEText(html_file, "html"))
-
-    # load and attach the image
-    try:
-        with open(image, "rb") as file:
-            image_data = file.read()
-            image = MIMEImage(image_data)
-            image.add_header("Content-ID", "<image>")
-            image.add_header("Contend-ID", "<paypal>")
-            html_message.attach(image)
-
-            return html_message
-    except:
-        writer.write_txt(
-            f"Unable to open {image}. Check whether the {image} is /assets directory"
-        )
-        raise FileNotFoundError(
-            f"Unable to open {image}. Check whether the {image} is /assets directory"
-        )
