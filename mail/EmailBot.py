@@ -12,8 +12,8 @@ from mail.HtmlTemplate import HtmlTemplate
 
 
 class MailBot:
-    sender = "jarvismark01v@gmail.com"  # update this
-    credential = "onrvwrkofhtuxqzl"  # update this
+    sender = ""  # update this
+    credential = ""  # update this
     # print(credential)
 
     def __init__(self, receiver=None, subject=None, message=None, full_name=None):
