@@ -416,19 +416,6 @@
             >If you are a student, what is your expected graduation year? <span class="text-danger">*</span></label
           >
           <div class="form-check">
-            <label class="form-check-label" for="fall23"
-              ><input
-                class="form-check-input"
-                type="radio"
-                name="gradyear"
-                id="fall23"
-                value="Fall 2023"
-                requried
-              />
-              Fall 2023
-            </label>
-          </div>
-          <div class="form-check">
             <label class="form-check-label" for="spring24"
               ><input
                 class="form-check-input"
@@ -438,18 +425,6 @@
                 value="Spring 2024"
               />
               Spring 2024
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="fall24"
-              ><input
-                class="form-check-input"
-                type="radio"
-                name="gradyear"
-                id="fall24"
-                value="Fall 2024"
-              />
-              Fall 2024
             </label>
           </div>
           <div class="form-check">
@@ -465,18 +440,6 @@
             </label>
           </div>
           <div class="form-check">
-            <label class="form-check-label" for="fall25"
-              ><input 
-                class="form-check-input"
-                type="radio"
-                name="gradyear"
-                id="fall25"
-                value="Fall 2025"
-              />
-              Fall 2025
-            </label>
-          </div>
-          <div class="form-check">
             <label class="form-check-label" for="spring26"
               ><input 
                 class="form-check-input"
@@ -489,18 +452,6 @@
             </label>
           </div>
           <div class="form-check">
-            <label class="form-check-label" for="fall26"
-              ><input 
-                class="form-check-input"
-                type="radio"
-                name="gradyear"
-                id="fall26"
-                value="Fall 2026"
-              />
-              Fall 2026
-            </label>
-          </div>
-          <div class="form-check">
             <label class="form-check-label" for="spring27"
               ><input 
                 class="form-check-input"
@@ -510,18 +461,6 @@
                 value="Spring 2027"
               />
               Spring 2027
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="fall27"
-              ><input 
-                class="form-check-input"
-                type="radio"
-                name="gradyear"
-                id="fall27"
-                value="Fall 2027"
-              />
-              Fall 2027
             </label>
           </div>
           <div class="form-check">
@@ -792,7 +731,7 @@
 
         <div id="projectSection" class="input-box">
           <label class="form-label" for="project-workshop"
-            >Project Workshops you'd be interested in for Fall 2023 (Note that
+            >Project Workshops you'd be interested in for Fall 2023 (<span class="text-danger"><b>Deadline is Saturday, September 2nd. </b></span>Note that
             you still have to do the official sign-ups on our website) <span class="text-danger">*</span></label
           >
           <div class="checkbox-projects">
@@ -1081,6 +1020,15 @@
           var gainCheck = $('input[name="gain"]').serializeArray();
           var projCheck = $('input[name="project-workshop"]').serializeArray();
           var availCheck = $('input[name="availability"]').serializeArray();
+          var firstEmail = ($('input[id="emailText"]').val()).toLowerCase();
+          var confirmEmail = ($('input[id="confirmation"]').val()).toLowerCase();
+          console.log(firstEmail);
+          console.log(confirmEmail);
+
+          if (!(firstEmail === confirmEmail)){
+            alert("Your confirmation email doesn't match.");
+            return false;
+          }
 
           if(hearCheck.length == 0){
             alert("You have missing checkbox fields");
@@ -1101,6 +1049,7 @@
           else 
             return true;
 
+
           
         });
         /**********************************************/
@@ -1120,6 +1069,9 @@
           $('#advanced').prop('checked', false);
         });
         /**********************************************/
+
+
+
       });
     </script>
   </body>
