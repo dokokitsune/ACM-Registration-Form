@@ -4,20 +4,48 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta http-equiv="refresh" content="20,https://acm-calstatela.com/"/>
+        <meta http-equiv="refresh" content="40,https://acm-calstatela.com/"/>
         <link rel="stylesheet" href="../static/styles.css" />
     </head>
 
     <body class="container">
         <div class="Thank-you">
             <h1>Thank you for submitting the form.</h1>
-            <h2>You will be recieving a welcome email in the next 15 minutes. </h2>
-            <h2>Please remember to check your spam/junk email if its not in your inbox.</h2>
-            <h2>If you haven't yet recived anything after 20 mins, please contact us at: <a href="mailto:acm.calstatela@gmail.com">acm.calstatela@gmail.com</a>.</h2>
-        
-
-       
+            <h2>You will be receiving a welcome email from <a href="mailto:acm.csula.web@gmail.com">acm.csula.web@gmail.com</a> in the next few minutes. <b style="color:red">Check your junk/spam email boxes</b></h2>
+            <h2>If you haven't yet recived anything in the next 20 mins, please contact us at: <a href="mailto:acm.calstatela@gmail.com">acm.calstatela@gmail.com</a>.</h2>
+            <h5>You can close this tab anytime</h5>
+            <h5>*Redirecting back to home website in <span id="timer" style="color:red">00:40</span> secs*</h5>
 
 
+
+
+
+    <script>
+        function startTimer() {
+            var timeInSeconds = 40;
+            var timerDisplay = document.getElementById('timer');
+
+            var countdown = setInterval(function() {
+            if (timeInSeconds >= 0) {
+                var minutes = Math.floor(timeInSeconds / 60);
+                var seconds = timeInSeconds % 60;
+
+                // Pad single digits with leading zeros
+                minutes = (minutes < 10) ? "0" + minutes : minutes;
+                seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+                timerDisplay.textContent = minutes + ":" + seconds;
+                timeInSeconds--;
+            }
+            else {
+                clearInterval(countdown);
+                timerDisplay.textContent = "Time's up!";
+                    }
+                }, 1000); // Update every second (1000 milliseconds)
+        }
+
+  // Call the startTimer function to begin the countdown
+  startTimer();
+    </script>
     </body>
 </html>
