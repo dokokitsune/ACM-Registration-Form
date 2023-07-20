@@ -86,4 +86,3 @@ class MailBot:
 
         except:
             writer.write_txt(f"Unable to send email to {self.receiver}")
-            raise RuntimeError(f"Unable to send emails to {self.receiver}.")

@@ -4,6 +4,7 @@ from mail.EmailBot import MailBot
 from sheets.googlesheets import addData
 from mail.HtmlTemplate import HtmlTemplate
 
+
 app = Flask(__name__)
 
 
@@ -14,21 +15,24 @@ def main_page():
 
 @app.route("/submit_form", methods=["POST", "GET"])
 def submit_form():
-    # print("submit form")
-    if request.method == "POST":
-        # Processing dictonary data into list
-        data = utility.get_data(request)
+    try:
+        # print("submit form")
+        if request.method == "POST":
+            # Processing dictonary data into list
+            data = utility.get_data(request)
 
-        # Using the list to save all data as csv for backup
-        writer.write_to_csv(data)
+            # Using the list to save all data as csv for backup
+            writer.write_to_csv(data)
 
-        # sending a welcome email using the email & name recieved from the form
-        send_email(data)
+            # sending a welcome email using the email & name recieved from the form
+            send_email(data)
 
-        # Appending the recieved data to google sheets
-        addData(data)
+            # Appending the recieved data to google sheets
+            addData(data)
 
-        return render_template("submitted.html")
+            return render_template("submitted.html")
+    except:
+        return "not submitted"
 
 
 def send_email(data):
@@ -48,5 +52,4 @@ def send_email(data):
 
         mail_bot.send_html_email()
     except:
-        pass
         writer.write_txt(f"Unable to send email to {data[1]}")
