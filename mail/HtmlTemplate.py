@@ -25,4 +25,4 @@ class HtmlTemplate:
                 self.html_message.attach(image)
         except:
             write_txt("Unable to open assets directory")
-            raise FileNotFoundError(f"Unable to open assets directory")
+            raise FileNotFoundError("Unable to open assets directory")

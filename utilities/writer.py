@@ -11,5 +11,5 @@ def write_to_csv(data):
 
 # makes a log of any component failure
 def write_txt(data):
-    with open("log.txt", mode="a") as text_file:  # change this to absolute path
+    with open("/home/acmcsulaweb/ACM-Registration-Form/Log/log.txt", mode="a") as text_file:
         text_file.write(data + "\n")
