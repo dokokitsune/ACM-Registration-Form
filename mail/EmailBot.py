@@ -1,19 +1,14 @@
 import smtplib
+import time
 from email.message import EmailMessage
-import os
-from pathlib import Path
-from string import Template
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.image import MIMEImage
 from utilities import utility
 from utilities import writer
 from mail.HtmlTemplate import HtmlTemplate
 
 
 class MailBot:
-    sender = ""  # update this
-    credential = ""  # update this
+    sender = "acm.csula.web@gmail.com"  # update this
+    credential = utility.retrieve_key()  # update this
     # print(credential)
 
     def __init__(self, receiver=None, subject=None, message=None, full_name=None):
@@ -56,17 +51,17 @@ class MailBot:
     def send_html_email(self):
         # Setting up html email
         html_file = HtmlTemplate(
-            "./static/welcome.html", self.full_name
+            "/home/acmcsulaweb/ACM-Registration-Form/static/welcome.html", self.full_name
         )  # change to absolute path
 
         # Adding acm logo into the html email
         html_file.add_image(
-            "./static/images/acm.png", "<image>"
+            "/home/acmcsulaweb/ACM-Registration-Form/static/images/acm.png", "<image>"
         )  # change to absolute path
 
         # Adding paypal logo into the html email
         html_file.add_image(
-            "./static/images/donate.png", "<paypal>"
+            "/home/acmcsulaweb/ACM-Registration-Form/static/images/donate.png", "<paypal>"
         )  # change to absolute path
 
         # Email From, Email To
@@ -81,9 +76,12 @@ class MailBot:
             with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
                 smtp.ehlo()
                 smtp.starttls()
+
+                time.sleep(1)
                 smtp.login(self.sender, self.credential)
+
+                time.sleep(1)
                 smtp.send_message(email)
 
         except:
             writer.write_txt(f"Unable to send email to {self.receiver}")
-            raise RuntimeError(f"Unable to send emails to {self.receiver}.")
