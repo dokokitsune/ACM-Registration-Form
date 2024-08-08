@@ -15,18 +15,18 @@ CORS(app, resourses={r"/*": {"origins": "https://acm-calstatela.com/"}})
 
 @app.before_request
 def check_referrer():
-    allowed_hosts = ["https://acm-calstatela.com", "127.0.0.1:5000"]
+    allowed_hosts = ["https://acm-calstatela.com", "127.0.0.1:5000", "localhost:3000"]
     referrer = request.headers.get("Referer")
     if referrer:
         referrer_host = parse.urlparse(referrer).netloc
         if referrer_host not in allowed_hosts:
             abort(403)
+# @app.route("/")
+# def main_page():
+#     return render_template("index.html")
+
 @app.route("/")
 def main_page():
-    return render_template("index.html")
-
-@app.route('/success')
-def success():
     session_id = request.args.get('session_id')
     try:
         session = stripe.checkout.Session.retrieve(session_id)
@@ -36,6 +36,19 @@ def success():
             return "Payment not completed.", 400
     except stripe.error.InvalidRequestError:
         return "Invalid session ID", 400
+
+
+# @app.route('/success')
+# def success():
+#     session_id = request.args.get('session_id')
+#     try:
+#         session = stripe.checkout.Session.retrieve(session_id)
+#         if session.payment_status == "paid":
+#             return render_template("index.html")
+#         else:
+#             return "Payment not completed.", 400
+#     except stripe.error.InvalidRequestError:
+#         return "Invalid session ID", 400
 
 @app.route("/submit_form", methods=["POST", "GET"])
 def submit_form():
