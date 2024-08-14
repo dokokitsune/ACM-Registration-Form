@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, make_response
+from flask import Flask, render_template, request, jsonify, make_response, redirect, url_for
 from flask_cors import CORS
 from urllib import parse
 from functools import wraps
@@ -8,45 +8,11 @@ from mail.EmailBot import MailBot
 from sheets.googlesheets import addData
 from mail.HtmlTemplate import HtmlTemplate
 
-
 app = Flask(__name__)
-CORS(app, resourses={r"/*": {"origins": "https://acm-calstatela.com/"}})
-
-
-# @app.route("/")
-# def main_page():
-#     return render_template("index.html")
 
 @app.route("/")
 def main_page():
-    session_id = request.args.get('sessionId')
-    
-    if not session_id:
-        return "Error: No session ID provided", 400
-    
-    try:
-        # Validate that the session ID is a valid UUID
-        UUID(session_id)
-        
-        # Here, you would typically:
-        # 1. Check if this session ID exists in your database
-        # 2. Verify the payment status with Stripe
-        # 3. Update the user's membership status
-        
-        return render_template("index.html")
-    except ValueError:
-        return "Error: Invalid session ID", 400
-# @app.route('/success')
-# def success():
-#     session_id = request.args.get('session_id')
-#     try:
-#         session = stripe.checkout.Session.retrieve(session_id)
-#         if session.payment_status == "paid":
-#             return render_template("index.html")
-#         else:
-#             return "Payment not completed.", 400
-#     except stripe.error.InvalidRequestError:
-#         return "Invalid session ID", 400
+    return render_template("index.html")
 
 @app.route("/submit_form", methods=["POST", "GET"])
 def submit_form():
