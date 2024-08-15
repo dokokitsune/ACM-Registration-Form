@@ -877,8 +877,6 @@
           console.log("button clicked");
           var hearCheck = $('input[name="hear"]').serializeArray();
           var gainCheck = $('input[name="gain"]').serializeArray();
-          {% comment %} var projCheck = $('input[name="project-workshop"]').serializeArray(); {% endcomment %}
-          {% comment %} var availCheck = $('input[name="availability"]').serializeArray(); {% endcomment %}
           var firstEmail = ($('input[id="emailText"]').val()).toLowerCase();
           var confirmEmail = ($('input[id="confirmation"]').val()).toLowerCase();
           console.log(firstEmail);
@@ -897,14 +895,6 @@
             alert("You have missing checkbox fields");
             return false;
           }
-          {% comment %} else if(projCheck.length == 0){
-            alert("You have missing checkbox fields");
-            return false;
-          } {% endcomment %}
-          {% comment %} else if(availCheck.length == 0){
-            alert("You have missing checkbox fields");
-            return false;
-          } {% endcomment %}
           else {
             return true;
           }
