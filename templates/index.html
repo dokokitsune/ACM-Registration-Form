@@ -62,6 +62,7 @@
             id="emailText"
             required
           />
+          <p class="mt-3"><b>Note:</b> It is highly recommended to provide a gmail account, <b><u>not</u></b> your calstatela.edu email</p>
         </div>
 
         <div class="input-box">
@@ -876,8 +877,8 @@
           console.log("button clicked");
           var hearCheck = $('input[name="hear"]').serializeArray();
           var gainCheck = $('input[name="gain"]').serializeArray();
-          var projCheck = $('input[name="project-workshop"]').serializeArray();
-          var availCheck = $('input[name="availability"]').serializeArray();
+          {% comment %} var projCheck = $('input[name="project-workshop"]').serializeArray(); {% endcomment %}
+          {% comment %} var availCheck = $('input[name="availability"]').serializeArray(); {% endcomment %}
           var firstEmail = ($('input[id="emailText"]').val()).toLowerCase();
           var confirmEmail = ($('input[id="confirmation"]').val()).toLowerCase();
           console.log(firstEmail);
@@ -896,14 +897,14 @@
             alert("You have missing checkbox fields");
             return false;
           }
-          else if(projCheck.length == 0){
+          {% comment %} else if(projCheck.length == 0){
             alert("You have missing checkbox fields");
             return false;
-          }
-          else if(availCheck.length == 0){
+          } {% endcomment %}
+          {% comment %} else if(availCheck.length == 0){
             alert("You have missing checkbox fields");
             return false;
-          }
+          } {% endcomment %}
           else {
             return true;
           }
