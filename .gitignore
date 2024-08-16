@@ -7,5 +7,9 @@
 /mail/test.py
 /mail/__pycache__
 /utilties/__pycache__
+/sheets/service_account.json
+log.txt
+database.csv
+
 *.md
 *.cfg

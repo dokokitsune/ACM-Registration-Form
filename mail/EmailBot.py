@@ -14,7 +14,7 @@ from mail.HtmlTemplate import HtmlTemplate
 class MailBot:
     sender = "acm.csula.web@gmail.com"  # update this
     credential = utility.retrieve_key()  # update this
-    # print(credential)
+   # print(credential)
 
     def __init__(self, receiver=None, subject=None, message=None, full_name=None):
         self.receiver = receiver
