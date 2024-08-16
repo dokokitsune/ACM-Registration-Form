@@ -12,8 +12,8 @@ def get_data(request):
         if (
             key == "hear"
             or key == "gain"
-            or key == "project-workshop"
-            or key == "availability"
+            # or key == "project-workshop"
+            # or key == "availability"
         ):
             # request.form.getlist(key) gets multiple answers in an array
             student_info.append(extract_string_from_list(request.form.getlist(key)))

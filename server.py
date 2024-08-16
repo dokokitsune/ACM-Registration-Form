@@ -41,12 +41,12 @@ def send_email(data):
         html_file = HtmlTemplate(
             "./static/welcome.html", full_name
         )  # change to absolute path
-        html_file.add_image(
-            "./static/images/acm.png", "<image>"
-        )  # change to absolute path
-        html_file.add_image(
-            "./static/images/donate.png", "<paypal>"
-        )  # change to absolute path
+        # html_file.add_image(
+        #     "./static/images/acm.png", "<image>"
+        # )  # change to absolute path
+        # html_file.add_image(
+        #     "./static/images/donate.png", "<paypal>"
+        # )  # change to absolute path
 
         mail_bot.send_html_email()
     except:
