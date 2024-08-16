@@ -42,7 +42,7 @@ def extract_string_from_list(arr):
 
 # This function is used to retrieve key from ~/.bashrc, only used in server
 def retrieve_key():
-    file_path = "/secret.txt"
+    file_path = "./secret.txt"
     with open(file_path, 'r') as file:
         return file.readline().strip()
     # file_path = os.path.expanduser("~/.bashrc")
