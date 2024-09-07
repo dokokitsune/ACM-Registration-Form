@@ -34,14 +34,15 @@
           <div class="d-flex align-items-center ">
             <img src="../static/images/acm.png" class="card-img-top p-1" alt="acmlogo" style="width: 6rem;">
             <div>
-              <h1>ACM Member Registration : 2023-2024</h1>
+              <h1>ACM Member Registration : 2024-2025</h1>
               <h1>CSULA ACM | Association for Computing Machinery</h1>
             </div>
           </div>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Note: Most of our events are scheduled on Tuesday/Thursdays 3pm - 4:20pm</h6>
+          <h5 class="card-subtitle mb-2 text-danger"><b>For Projects:</b> You will receive a project workshop form in the welcome email. If interested, sign-ups are due at 11:59 PM Sept. 1st.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><b>Note:</b> Most of our events are scheduled on Tuesday/Thursdays 3pm - 4:20pm</h6>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Contact us at: <a href="mailto:acm.calstatela@gmail.com">acm.calstatela@gmail.com</a></li>
-            <li class="list-group-item">( <span class="text-danger">*</span> ) indicates required field</li>
+            <li class="list-group-item">( <span class="text-danger">*</span> ) indicates requied field</li>
           </ul>
         </div>
       </div>
@@ -61,6 +62,7 @@
             id="emailText"
             required
           />
+          <p class="mt-3 text-danger"><b>Note:</b> It is highly recommended to provide a gmail account, <b><u>not</u></b> your calstatela.edu email</p>
         </div>
 
         <div class="input-box">
@@ -114,6 +116,7 @@
             placeholder="Phone Number"
             required
           />
+          <p class="mt-3 text-danger"><b>Note:</b> Do not include parentheses or hypens</p>
         </div>
 
         <div class="input-box">
@@ -403,7 +406,7 @@
 
         <div class="input-box">
           <label class="form-label" for="Senior Design"
-            >If you're a rising senior, are you taking Senior Design in 2023-2024 (for ECST
+            >If you're a rising senior, are you taking Senior Design in 2024-2025 (for ECST
             students)? <span class="text-danger">*</span></label
           >
           <select class="form-select" name="senior-design" id="senior-design" required>
@@ -416,18 +419,6 @@
           <label class="form-label" for="graduation-year"
             >If you are a student, what is your expected graduation year? <span class="text-danger">*</span></label
           >
-          <div class="form-check">
-            <label class="form-check-label" for="spring24"
-              ><input
-                class="form-check-input"
-                type="radio"
-                name="gradyear"
-                id="spring24"
-                value="Spring 2024"
-              />
-              Spring 2024
-            </label>
-          </div>
           <div class="form-check">
             <label class="form-check-label" for="spring25"
               ><input
@@ -474,6 +465,18 @@
                 value="Spring 2028"
               />
               Spring 2028
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="spring29"
+              ><input
+                class="form-check-input"
+                type="radio"
+                name="gradyear"
+                id="spring29
+                value="Spring 2029"
+              />
+              Spring 2029
             </label>
           </div>
           <div class="form-check">
@@ -718,156 +721,9 @@
             </label>
           </div>
         </div>
+        
 
-        <div class="input-box">
-          <label class="form-label" for="buddy"
-            >Buddy System (Direct correspondence and access to an ACM
-            leader through <b>email</b>, <b>text</b> and <b>discord</b>   ) <span class="text-danger">*</span></label
-          >
-          <select class="form-select" name="buddy" id="buddy" required>
-            <option value="Opt in">Opt in</option>
-            <option value="Opt out">Opt out</option>
-          </select>
-        </div>
-
-        <div id="projectSection" class="input-box">
-          <label class="form-label" for="project-workshop"
-            >Project Workshops you'd be interested in for Fall 2023 (<span class="text-danger"><b>Deadline: September 2nd. </b></span>Note that
-            you still have to do the official sign-ups on our website) <span class="text-danger">*</span></label
-          >
-          <div class="checkbox-projects">
-            <div class="form-check">
-              <label class="form-check-label" for="beginners"
-                ><input
-                  class="form-check-input"
-                  type="checkbox"
-                  name="project-workshop"
-                  id="beginners"
-                  value="beginners"
-                />
-                Beginners level: Wordle Game
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label" for="advanced"
-                ><input
-                  class="form-check-input"
-                  type="checkbox"
-                  name="project-workshop"
-                  id="advanced"
-                  value="advanced"
-                />
-                Advanced level: Unity 2d Sidescroller
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label" for="notInterested"
-                ><input
-                  class="form-check-input"
-                  type="checkbox"
-                  name="project-workshop"
-                  id="notInterested"
-                  value="notInterested"
-                />
-                Not interested
-              </label>
-            </div>
-          </div>
-
-
-
-        </div>
-
-        <div class="input-box">
-          <label class="form-label" for="availability"
-            >What dates are you usually most free? (Tuesdays & Thursdays at
-            3:00-4:20 p.m. are typically when ACM has meetings) <span class="text-danger">*</span></label
-          >
-          <div class="form-check">
-            <label class="form-check-label" for="sunday"
-              ><input
-                class="form-check-input"
-                type="checkbox"
-                name="availability"
-                id="sunday"
-                value="sunday"
-              />
-              Sunday
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="monday"
-              ><input
-                class="form-check-input"
-                type="checkbox"
-                name="availability"
-                id="monday"
-                value="monday"
-              />
-              Monday
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="tuesday"
-              ><input
-                class="form-check-input"
-                type="checkbox"
-                name="availability"
-                id="tuesday"
-                value="tuesday"
-              />
-              Tuesday
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="wednesday"
-              ><input
-                class="form-check-input"
-                type="checkbox"
-                name="availability"
-                id="wednesday"
-                value="wednesday"
-              />
-              Wednesday
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="thursday"
-              ><input
-                class="form-check-input"
-                type="checkbox"
-                name="availability"
-                id="thursday"
-                value="thursday"
-              />
-              Thursday
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="friday"
-              ><input
-                class="form-check-input"
-                type="checkbox"
-                name="availability"
-                id="friday"
-                value="friday"
-              />
-              Friday
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label" for="saturday"
-              ><input
-                class="form-check-input"
-                type="checkbox"
-                name="availability"
-                id="saturday"
-                value="saturday"
-              />
-              Saturday
-            </label>
-          </div>
-        </div>
+        
         <div class="input-box">
           <label class="form-label" for="recommendations"
             >Please provide some recommendations of projects and endeavors ACM
@@ -1022,8 +878,6 @@
           console.log("button clicked");
           var hearCheck = $('input[name="hear"]').serializeArray();
           var gainCheck = $('input[name="gain"]').serializeArray();
-          var projCheck = $('input[name="project-workshop"]').serializeArray();
-          var availCheck = $('input[name="availability"]').serializeArray();
           var firstEmail = ($('input[id="emailText"]').val()).toLowerCase();
           var confirmEmail = ($('input[id="confirmation"]').val()).toLowerCase();
           console.log(firstEmail);
@@ -1039,14 +893,6 @@
             return false;
           }
           else if(gainCheck.length == 0){
-            alert("You have missing checkbox fields");
-            return false;
-          }
-          else if(projCheck.length == 0){
-            alert("You have missing checkbox fields");
-            return false;
-          }
-          else if(availCheck.length == 0){
             alert("You have missing checkbox fields");
             return false;
           }

@@ -12,9 +12,9 @@ from mail.HtmlTemplate import HtmlTemplate
 
 
 class MailBot:
-    sender = ""  # update this
-    credential = ""  # update this
-    # print(credential)
+    sender = "acm.csula.web@gmail.com"  # update this
+    credential = utility.retrieve_key()  # update this
+   # print(credential)
 
     def __init__(self, receiver=None, subject=None, message=None, full_name=None):
         self.receiver = receiver
@@ -60,14 +60,14 @@ class MailBot:
         )  # change to absolute path
 
         # Adding acm logo into the html email
-        html_file.add_image(
-            "./static/images/acm.png", "<image>"
-        )  # change to absolute path
+        # html_file.add_image(
+        #     "./static/images/acm.png", "<image>"
+        # )  # change to absolute path
 
         # Adding paypal logo into the html email
-        html_file.add_image(
-            "./static/images/donate.png", "<paypal>"
-        )  # change to absolute path
+        # html_file.add_image(
+        #     "./static/images/donate.png", "<paypal>"
+        # )  # change to absolute path
 
         # Email From, Email To
         email = EmailMessage()
